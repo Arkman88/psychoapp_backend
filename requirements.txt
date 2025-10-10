@@ -1,0 +1,12 @@
+Django==5.0.0
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.3.1
+django-cors-headers==4.3.1
+psycopg2-binary==2.9.9
+python-decouple==3.8
+Pillow
+requests
+google-auth==2.23.4
+google-auth-oauthlib==1.1.0
+google-auth-httplib2==0.1.1
+PyJWT==2.8.0

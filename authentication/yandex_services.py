@@ -44,24 +44,24 @@ class YandexSpeechKit:
             output_path = output_file.name
         
         try:
-            # FFmpeg команда: AAC → OggOpus
+             # FFmpeg команда: AAC -> Ogg (Opus) в ogg-контейнере
             result = subprocess.run([
                 'ffmpeg',
-                '-i', input_path,              # Входной файл
-                '-acodec', 'libopus',          # Opus кодек
-                '-ar', '16000',                # 16kHz sample rate
-                '-ac', '1',                    # Моно
-                '-b:a', '64k',                 # 64 kbps bitrate
-                '-vbr', 'on',                  # Variable bitrate
-                '-compression_level', '10',    # Максимальное сжатие
-                '-y',                          # Перезаписать если существует
+                '-y',
+                '-i', input_path,
+                '-ac', '1',
+                '-ar', '16000',
+                '-c:a', 'libopus',
+                '-b:a', '64k',
+                '-vbr', 'on',
+                '-f', 'ogg',
                 output_path
-            ], check=True, capture_output=True, stderr=subprocess.PIPE)
-            
-            # Читаем результат
+            ], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+             
+             # Читаем результат
             with open(output_path, 'rb') as f:
-                opus_data = f.read()
-            
+                 opus_data = f.read()
+             
             logger.info(f"Conversion successful: {len(audio_data)} → {len(opus_data)} bytes")
             return opus_data
             
@@ -105,6 +105,7 @@ class YandexSpeechKit:
         
         headers = {
             'Authorization': f'Api-Key {settings.YANDEX_API_KEY}',
+            'Content-Type': 'audio/ogg; codecs=opus',
         }
         
         params = {

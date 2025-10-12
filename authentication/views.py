@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate, get_user_model
 from django.conf import settings
 from datetime import datetime
 import requests as http_requests
+import json
 
 from .serializers import (
     RegisterSerializer, 
@@ -18,6 +19,7 @@ from .serializers import (
     ResetPasswordSerializer,
 )
 from .models import UserSession
+from .yandex_services import YandexSpeechKit, YandexVision, YandexGPT
 
 User = get_user_model()
 
@@ -326,3 +328,161 @@ def reset_password_view(request):
     
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def get_app_config(request):
+    """
+    Возвращает публичные настройки приложения.
+    НЕ возвращайте секретные ключи (SECRET_KEY, API_KEY и т.д.)
+    """
+    config = {
+        'debug': settings.DEBUG,
+        'allowed_hosts': settings.ALLOWED_HOSTS,
+        # добавьте только публичные настройки
+        'google_oauth_client_id': settings.GOOGLE_OAUTH_CLIENT_ID if hasattr(settings, 'GOOGLE_OAUTH_CLIENT_ID') else None,
+        'yandex_oauth_client_id': settings.YANDEX_OAUTH_CLIENT_ID if hasattr(settings, 'YANDEX_OAUTH_CLIENT_ID') else None,
+        # НЕ добавляйте SECRET_KEY, YANDEX_GPT_API_KEY и другие секреты
+    }
+    return Response(config)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def speech_to_text_view(request):
+    """
+    Распознавание речи через Yandex SpeechKit
+    Ожидает audio файл в request.FILES
+    """
+    try:
+        audio_file = request.FILES.get('audio')
+        if not audio_file:
+            return Response(
+                {'message': 'Аудио файл не найден', 'error': 'AUDIO_REQUIRED'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # Читаем аудио данные
+        audio_data = audio_file.read()
+        
+        # Распознаём речь
+        text = YandexSpeechKit.recognize_audio(audio_data)
+        
+        return Response({
+            'text': text,
+            'success': True
+        })
+        
+    except Exception as e:
+        return Response(
+            {'message': f'Ошибка распознавания речи: {str(e)}', 'error': 'RECOGNITION_FAILED'},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def analyze_image_view(request):
+    """
+    Анализ изображения через Yandex Vision
+    Ожидает image файл в request.FILES
+    """
+    try:
+        image_file = request.FILES.get('image')
+        if not image_file:
+            return Response(
+                {'message': 'Изображение не найдено', 'error': 'IMAGE_REQUIRED'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # Читаем данные изображения
+        image_data = image_file.read()
+        
+        # Анализируем и очищаем текст из изображения
+        cleaned_text = YandexVision.analyze_workout_image(image_data)
+        
+        return Response({
+            'text': cleaned_text,
+            'success': True
+        })
+        
+    except Exception as e:
+        return Response(
+            {'message': f'Ошибка анализа изображения: {str(e)}', 'error': 'ANALYSIS_FAILED'},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def parse_workout_text_view(request):
+    """
+    Парсинг текста тренировки с помощью YandexGPT
+    Принимает { "text": "жим лёжа 80кг 10 раз, присед 100кг 8 повторений" }
+    Возвращает структурированные данные
+    """
+    try:
+        text = request.data.get('text', '')
+        
+        if not text:
+            return Response(
+                {'message': 'Текст не может быть пустым', 'error': 'TEXT_REQUIRED'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # Парсим тренировку через YandexGPT
+        workout_data = YandexGPT.parse_workout_from_text(text)
+        
+        return Response({
+            'workout': workout_data,
+            'success': True
+        })
+        
+    except Exception as e:
+        return Response(
+            {'message': f'Ошибка парсинга текста: {str(e)}', 'error': 'PARSING_FAILED'},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def ai_recommendations_view(request):
+    """
+    AI рекомендации на основе истории тренировок пользователя
+    Принимает:
+    - { "history": "текстовая история" } или
+    - { "workouts": [...], "stats": {...}, "records": {...} }
+    """
+    try:
+        # Поддерживаем оба формата: строка или структурированные данные
+        user_history = request.data.get('history')
+        
+        if not user_history:
+            # Пробуем получить структурированные данные
+            user_history = {
+                'workouts': request.data.get('workouts', []),
+                'stats': request.data.get('stats', {}),
+                'records': request.data.get('records', {})
+            }
+            
+            # Проверяем, что хоть что-то передано
+            if not user_history['workouts'] and not user_history['stats'] and not user_history['records']:
+                return Response(
+                    {'message': 'История тренировок не может быть пустой', 'error': 'HISTORY_REQUIRED'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+        
+        # Генерируем рекомендации
+        recommendations = YandexGPT.generate_workout_recommendations(user_history)
+        
+        return Response({
+            'recommendations': recommendations,
+            'success': True
+        })
+        
+    except Exception as e:
+        return Response(
+            {'message': f'Ошибка генерации рекомендаций: {str(e)}', 'error': 'GENERATION_FAILED'},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )

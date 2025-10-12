@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from authentication.views import get_app_config
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('authentication.urls')),
+     path('api/config/', get_app_config, name='app-config')
 ]
 
 # Добавляем маршруты для медиа файлов в режиме разработки

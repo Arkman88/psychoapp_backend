@@ -24,6 +24,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-k2_4532c0r*f9-u!mwusy*e=#47jvm#@$%l#uwai_5g03hiiun')
 
+
+# API ключи (ПРИВАТНЫЕ - не отдавать через API)
+YANDEX_API_KEY = config('YANDEX_API_KEY', default='')
+YANDEX_FOLDER_ID = config('YANDEX_FOLDER_ID', default='')
+YANDEX_GPT_API_KEY = config('YANDEX_GPT_API_KEY', default='')
+YANDEX_GPT_FOLDER_ID = config('YANDEX_GPT_FOLDER_ID', default='')
+
+# OAuth настройки (публичные)
+GOOGLE_OAUTH_CLIENT_ID = config('GOOGLE_OAUTH_CLIENT_ID', default='')
+GOOGLE_OAUTH_CLIENT_SECRET = config('GOOGLE_OAUTH_CLIENT_SECRET', default='')
+YANDEX_OAUTH_CLIENT_ID = config('YANDEX_CLIENT_ID', default='')
+YANDEX_OAUTH_CLIENT_SECRET = config('YANDEX_CLIENT_SECRET', default='')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 

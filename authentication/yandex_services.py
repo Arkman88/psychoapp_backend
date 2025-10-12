@@ -1,0 +1,410 @@
+"""
+Сервисы для работы с Yandex Cloud API
+- SpeechKit (распознавание речи)
+- Vision (распознавание изображений)
+- YandexGPT (генерация текста и рекомендаций)
+"""
+
+import requests
+import base64
+from django.conf import settings
+
+
+class YandexSpeechKit:
+    """Сервис для распознавания речи через Yandex SpeechKit"""
+    
+    BASE_URL = 'https://stt.api.cloud.yandex.net/speech/v1/stt:recognize'
+    
+    @classmethod
+    def recognize_audio(cls, audio_data, lang='ru-RU'):
+        """
+        Распознать аудио файл
+        
+        Args:
+            audio_data: байтовые данные аудио (OGG Opus, LPCM)
+            lang: язык распознавания (по умолчанию ru-RU)
+            
+        Returns:
+            str: распознанный текст
+        """
+        if not settings.YANDEX_API_KEY or not settings.YANDEX_FOLDER_ID:
+            raise Exception('Yandex API ключи не настроены')
+        
+        headers = {
+            'Authorization': f'Api-Key {settings.YANDEX_API_KEY}',
+        }
+        
+        params = {
+            'folderId': settings.YANDEX_FOLDER_ID,
+            'lang': lang,
+        }
+        
+        response = requests.post(
+            cls.BASE_URL,
+            headers=headers,
+            params=params,
+            data=audio_data
+        )
+        
+        if response.status_code == 200:
+            result = response.json()
+            return result.get('result', '')
+        else:
+            raise Exception(f'SpeechKit error ({response.status_code}): {response.text}')
+
+
+class YandexVision:
+    """Сервис для распознавания изображений через Yandex Vision"""
+    
+    BASE_URL = 'https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze'
+    
+    @classmethod
+    def analyze_image(cls, image_data, features=None):
+        """
+        Анализ изображения
+        
+        Args:
+            image_data: байтовые данные изображения
+            features: список типов анализа (по умолчанию TEXT_DETECTION)
+            
+        Returns:
+            dict: результаты анализа
+        """
+        if not settings.YANDEX_API_KEY or not settings.YANDEX_FOLDER_ID:
+            raise Exception('Yandex API ключи не настроены')
+        
+        if features is None:
+            features = [{'type': 'TEXT_DETECTION'}]
+        
+        headers = {
+            'Authorization': f'Api-Key {settings.YANDEX_API_KEY}',
+            'Content-Type': 'application/json',
+        }
+        
+        # Конвертируем изображение в base64
+        image_base64 = base64.b64encode(image_data).decode('utf-8')
+        
+        body = {
+            'folderId': settings.YANDEX_FOLDER_ID,
+            'analyze_specs': [{
+                'content': image_base64,
+                'features': features
+            }]
+        }
+        
+        response = requests.post(
+            cls.BASE_URL,
+            headers=headers,
+            json=body
+        )
+        
+        if response.status_code == 200:
+            return response.json()
+        else:
+            raise Exception(f'Vision error ({response.status_code}): {response.text}')
+    
+    @classmethod
+    def extract_text_from_image(cls, image_data):
+        """
+        Извлечь текст из изображения
+        
+        Args:
+            image_data: байтовые данные изображения
+            
+        Returns:
+            str: извлеченный текст
+        """
+        result = cls.analyze_image(image_data)
+        
+        try:
+            texts = []
+            for spec_result in result.get('results', []):
+                for result_item in spec_result.get('results', []):
+                    if 'textDetection' in result_item:
+                        for page in result_item['textDetection'].get('pages', []):
+                            for block in page.get('blocks', []):
+                                for line in block.get('lines', []):
+                                    line_text = ' '.join([
+                                        word['text'] 
+                                        for word in line.get('words', [])
+                                    ])
+                                    texts.append(line_text)
+            
+            return '\n'.join(texts)
+        except Exception as e:
+            raise Exception(f'Ошибка парсинга результата Vision: {str(e)}')
+    
+    @classmethod
+    def analyze_workout_image(cls, image_data):
+        """
+        Анализ изображения тренировки с очисткой и структурированием текста
+        
+        Args:
+            image_data: байтовые данные изображения
+            
+        Returns:
+            str: очищенный текст тренировки
+        """
+        from .yandex_services import YandexGPT
+        
+        # Сначала извлекаем текст из изображения
+        raw_text = cls.extract_text_from_image(image_data)
+        
+        if not raw_text.strip():
+            return ""
+        
+        # Затем очищаем и структурируем текст с помощью GPT
+        system_prompt = """Ты — помощник для распознавания тренировок из фотографий.
+Очисти и структурируй текст, извлечённый из изображения тренировки.
+
+Правила:
+- Убери лишний текст, оставь только упражнения
+- Исправь опечатки в названиях упражнений
+- Стандартизируй формат записи (упражнение вес×повторы)
+- Если текст не о тренировке, верни пустую строку
+- Группируй подходы одного упражнения вместе
+
+Формат вывода: простой текст, каждое упражнение с новой строки."""
+
+        user_prompt = f"""Очисти этот текст из изображения:
+
+"{raw_text}"
+
+Верни только очищенный текст тренировки или пустую строку если это не тренировка."""
+
+        try:
+            cleaned_text = YandexGPT.generate_text(user_prompt, temperature=0.3, system_prompt=system_prompt)
+            return cleaned_text.strip()
+        except Exception as e:
+            # В случае ошибки возвращаем исходный текст
+            return raw_text
+
+
+class YandexGPT:
+    """Сервис для работы с YandexGPT"""
+    
+    BASE_URL = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion'
+    
+    @classmethod
+    def generate_text(cls, prompt, temperature=0.6, max_tokens=2000, system_prompt=None):
+        """
+        Генерация текста через YandexGPT
+        
+        Args:
+            prompt: текст запроса пользователя
+            temperature: температура генерации (0.0-1.0)
+            max_tokens: максимальное количество токенов
+            system_prompt: системный промпт (опционально)
+            
+        Returns:
+            str: сгенерированный текст
+        """
+        if not settings.YANDEX_GPT_API_KEY or not settings.YANDEX_GPT_FOLDER_ID:
+            raise Exception('YandexGPT API ключи не настроены')
+        
+        headers = {
+            'Authorization': f'Api-Key {settings.YANDEX_GPT_API_KEY}',
+            'Content-Type': 'application/json',
+        }
+        
+        messages = []
+        
+        if system_prompt:
+            messages.append({
+                'role': 'system',
+                'text': system_prompt,
+            })
+        
+        messages.append({
+            'role': 'user',
+            'text': prompt,
+        })
+        
+        body = {
+            'modelUri': f'gpt://{settings.YANDEX_GPT_FOLDER_ID}/yandexgpt-lite',
+            'completionOptions': {
+                'stream': False,
+                'temperature': temperature,
+                'maxTokens': max_tokens,
+            },
+            'messages': messages
+        }
+        
+        response = requests.post(
+            cls.BASE_URL,
+            headers=headers,
+            json=body
+        )
+        
+        if response.status_code == 200:
+            result = response.json()
+            return result['result']['alternatives'][0]['message']['text']
+        else:
+            raise Exception(f'YandexGPT error ({response.status_code}): {response.text}')
+    
+    @classmethod
+    def parse_workout_from_text(cls, text):
+        """
+        Парсинг тренировки из текста с помощью YandexGPT
+        
+        Args:
+            text: текст с описанием тренировки
+            
+        Returns:
+            dict: структурированные данные тренировки
+        """
+        system_prompt = """Ты — помощник для фитнес-приложения. 
+Твоя задача — преобразовать естественный текст с описанием тренировки в структурированный JSON формат.
+
+Правила:
+- Распознавай названия упражнений на русском и английском
+- Преобразуй веса в числа (кг), повторения в числа
+- Если вес не указан, используй 0
+- Если повторения не указаны, используй 1
+- Группируй подходы по упражнениям
+- Создай читаемое formatted_text для отображения
+
+Формат вывода: строго JSON без дополнительных комментариев."""
+
+        user_prompt = f"""Преобразуй этот текст в формат тренировки:
+
+"{text}"
+
+Ответ в формате:
+{{
+  "exercises": [
+    {{
+      "name": "название упражнения",
+      "sets": [
+        {{"weight": 80, "reps": 10}},
+        {{"weight": 85, "reps": 8}}
+      ]
+    }}
+  ],
+  "formatted_text": "жим лёжа 80×10, 85×8"
+}}"""
+        
+        response = cls.generate_text(user_prompt, temperature=0.3, system_prompt=system_prompt)
+        
+        # Пытаемся распарсить JSON из ответа
+        import json
+        try:
+            # Извлекаем JSON из ответа (может быть обёрнут в ```json)
+            response = response.strip()
+            if response.startswith('```'):
+                response = response.split('```')[1]
+                if response.startswith('json'):
+                    response = response[4:]
+            
+            return json.loads(response.strip())
+        except json.JSONDecodeError as e:
+            # Fallback: возвращаем базовую структуру
+            return {
+                "exercises": [],
+                "formatted_text": text,
+                "error": f"Не удалось распарсить ответ: {str(e)}"
+            }
+    
+    @classmethod
+    def generate_workout_recommendations(cls, user_history):
+        """
+        Генерация рекомендаций на основе истории тренировок
+        
+        Args:
+            user_history: словарь с историей тренировок пользователя
+                {
+                    "workouts": [...],  # список последних тренировок
+                    "stats": {...},     # общая статистика
+                    "records": {...}    # личные рекорды
+                }
+            
+        Returns:
+            str: рекомендации
+        """
+        system_prompt = """Ты — опытный AI-тренер, специализирующийся на силовых тренировках, бодибилдинге и анализе прогресса.
+
+Твоя задача — дать конкретные, применимые советы на основе истории тренировок пользователя.
+
+Правила рекомендаций:
+- Анализируй прогресс, частоту тренировок, объёмы
+- Давай советы по прогрессии, восстановлению, вариациям
+- Учитывай текущую форму и возможное перетренированность
+- Рекомендации должны быть реалистичными и безопасными
+- Приоритизируй: высокая нагрузка → отдых, стагнация → смена программы
+
+Формат вывода: строго JSON массив без дополнительных комментариев."""
+
+        # Если передана строка, используем как есть
+        if isinstance(user_history, str):
+            history_text = user_history
+        else:
+            # Форматируем структурированные данные
+            import json
+            workouts = user_history.get('workouts', [])
+            stats = user_history.get('stats', {})
+            records = user_history.get('records', {})
+            
+            workouts_text = ""
+            for workout in workouts[-5:]:  # последние 5 тренировок
+                workouts_text += f"Дата: {workout.get('date', 'Неизвестно')}\n"
+                for exercise in workout.get('exercises', []):
+                    sets_text = ", ".join([f"{s.get('weight', 0)}×{s.get('reps', 0)}" for s in exercise.get('sets', [])])
+                    workouts_text += f"- {exercise.get('name', 'Упражнение')}: {sets_text}\n"
+                workouts_text += "\n"
+            
+            history_text = f"""СТАТИСТИКА:
+- Всего тренировок: {stats.get('totalWorkouts', 0)}
+- Общий объём: {stats.get('totalVolume', 0)} кг
+- Текущая серия: {stats.get('currentStreak', 0)} дней подряд
+- Средняя частота: {stats.get('avgFrequency', 0)} тренировок/неделю
+
+ЛИЧНЫЕ РЕКОРДЫ:
+{json.dumps(records, indent=2, ensure_ascii=False)}
+
+ПОСЛЕДНИЕ ТРЕНИРОВКИ:
+{workouts_text}"""
+
+        prompt = f"""Проанализируй тренировочную историю пользователя и дай персональные рекомендации.
+
+{history_text}
+
+Дай 3-5 конкретных рекомендаций в формате JSON:
+[
+  {{
+    "type": "progression|recovery|variation|technique|nutrition",
+    "title": "Краткий заголовок",
+    "description": "Подробное объяснение с конкретными советами",
+    "priority": "low|medium|high"
+  }}
+]"""
+
+        try:
+            response = cls.generate_text(prompt, temperature=0.7, max_tokens=2000, system_prompt=system_prompt)
+            
+            # Пытаемся распарсить JSON
+            import json
+            response = response.strip()
+            if response.startswith('```'):
+                response = response.split('```')[1]
+                if response.startswith('json'):
+                    response = response[4:]
+            
+            recommendations = json.loads(response.strip())
+            
+            # Если это массив, возвращаем как есть
+            if isinstance(recommendations, list):
+                return recommendations[:5]  # максимум 5 рекомендаций
+            
+            # Если объект, оборачиваем в массив
+            return [recommendations]
+            
+        except Exception as e:
+            # Fallback: возвращаем текстовый ответ как одну рекомендацию
+            return [
+                {
+                    "type": "analysis",
+                    "title": "Рекомендации на основе истории",
+                    "description": response if 'response' in locals() else str(e),
+                    "priority": "medium"
+                }
+            ]

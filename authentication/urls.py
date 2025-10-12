@@ -22,4 +22,10 @@ urlpatterns = [
     
     # Token Management
     path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    
+    # Yandex AI Services
+    path('speech-to-text/', views.speech_to_text_view, name='speech_to_text'),
+    path('analyze-image/', views.analyze_image_view, name='analyze_image'),
+    path('parse-workout/', views.parse_workout_text_view, name='parse_workout'),
+    path('ai-recommendations/', views.ai_recommendations_view, name='ai_recommendations'),
 ]

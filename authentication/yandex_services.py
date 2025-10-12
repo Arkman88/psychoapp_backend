@@ -7,7 +7,13 @@
 
 import requests
 import base64
+import subprocess
+import tempfile
+import os
+import logging
 from django.conf import settings
+
+logger = logging.getLogger(__name__)
 
 
 class YandexSpeechKit:
@@ -16,12 +22,68 @@ class YandexSpeechKit:
     BASE_URL = 'https://stt.api.cloud.yandex.net/speech/v1/stt:recognize'
     
     @classmethod
-    def recognize_audio(cls, audio_data, lang='ru-RU'):
+    def convert_to_oggopus(cls, audio_data):
         """
-        Распознать аудио файл
+        Конвертация AAC/M4A → OggOpus для Yandex SpeechKit
         
         Args:
-            audio_data: байтовые данные аудио (OGG Opus, LPCM)
+            audio_data: байтовые данные AAC аудио
+            
+        Returns:
+            bytes: байтовые данные OggOpus
+        """
+        logger.info(f"Starting audio conversion, input size: {len(audio_data)} bytes")
+        
+        # Создаём временный файл для входного AAC
+        with tempfile.NamedTemporaryFile(suffix='.m4a', delete=False) as input_file:
+            input_file.write(audio_data)
+            input_path = input_file.name
+        
+        # Создаём временный файл для выходного OggOpus
+        with tempfile.NamedTemporaryFile(suffix='.ogg', delete=False) as output_file:
+            output_path = output_file.name
+        
+        try:
+            # FFmpeg команда: AAC → OggOpus
+            result = subprocess.run([
+                'ffmpeg',
+                '-i', input_path,              # Входной файл
+                '-acodec', 'libopus',          # Opus кодек
+                '-ar', '16000',                # 16kHz sample rate
+                '-ac', '1',                    # Моно
+                '-b:a', '64k',                 # 64 kbps bitrate
+                '-vbr', 'on',                  # Variable bitrate
+                '-compression_level', '10',    # Максимальное сжатие
+                '-y',                          # Перезаписать если существует
+                output_path
+            ], check=True, capture_output=True, stderr=subprocess.PIPE)
+            
+            # Читаем результат
+            with open(output_path, 'rb') as f:
+                opus_data = f.read()
+            
+            logger.info(f"Conversion successful: {len(audio_data)} → {len(opus_data)} bytes")
+            return opus_data
+            
+        except subprocess.CalledProcessError as e:
+            error_msg = e.stderr.decode('utf-8') if e.stderr else 'Unknown error'
+            logger.error(f"FFmpeg conversion failed: {error_msg}")
+            raise Exception(f'FFmpeg conversion failed: {error_msg}')
+            
+        finally:
+            # Удаляем временные файлы
+            if os.path.exists(input_path):
+                os.unlink(input_path)
+            if os.path.exists(output_path):
+                os.unlink(output_path)
+    
+    @classmethod
+    def recognize_audio(cls, audio_data, lang='ru-RU'):
+        """
+        Распознать аудио файл с автоматической конвертацией
+        
+        Args:
+            audio_data: байтовые данные аудио (AAC/M4A)
             lang: язык распознавания (по умолчанию ru-RU)
             
         Returns:
@@ -29,6 +91,17 @@ class YandexSpeechKit:
         """
         if not settings.YANDEX_API_KEY or not settings.YANDEX_FOLDER_ID:
             raise Exception('Yandex API ключи не настроены')
+        
+        logger.info(f"Starting speech recognition, input size: {len(audio_data)} bytes")
+        
+        # Конвертируем AAC → OggOpus
+        try:
+            opus_data = cls.convert_to_oggopus(audio_data)
+        except Exception as e:
+            logger.error(f"Audio conversion failed: {e}")
+            # Если конвертация не удалась, пробуем отправить как есть
+            logger.warning("Sending original audio data without conversion")
+            opus_data = audio_data
         
         headers = {
             'Authorization': f'Api-Key {settings.YANDEX_API_KEY}',
@@ -39,17 +112,25 @@ class YandexSpeechKit:
             'lang': lang,
         }
         
+        logger.info(f"Sending {len(opus_data)} bytes to Yandex SpeechKit")
+        
         response = requests.post(
             cls.BASE_URL,
             headers=headers,
             params=params,
-            data=audio_data
+            data=opus_data,
+            timeout=30
         )
+        
+        logger.info(f"Yandex SpeechKit response: {response.status_code}")
         
         if response.status_code == 200:
             result = response.json()
-            return result.get('result', '')
+            text = result.get('result', '')
+            logger.info(f"Recognition successful: '{text}'")
+            return text
         else:
+            logger.error(f"SpeechKit error: {response.status_code} - {response.text}")
             raise Exception(f'SpeechKit error ({response.status_code}): {response.text}')
 
 

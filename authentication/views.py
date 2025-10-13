@@ -17,9 +17,15 @@ from .serializers import (
     ChangePasswordSerializer,
     OAuthSerializer,
     ResetPasswordSerializer,
+    ExerciseSerializer,
+    ExerciseMatchRequestSerializer,
+    ExerciseMatchSerializer,
+    UserExerciseLogSerializer,
+    ExerciseConfirmSerializer,
 )
-from .models import UserSession
+from .models import UserSession, Exercise, ExerciseAlias, UserExerciseLog
 from .yandex_services import YandexSpeechKit, YandexVision, YandexGPT
+from .exercise_matcher import ExerciseMatcher
 
 User = get_user_model()
 
@@ -486,3 +492,333 @@ def ai_recommendations_view(request):
             {'message': f'Ошибка генерации рекомендаций: {str(e)}', 'error': 'GENERATION_FAILED'},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
+
+
+# ========== API для работы с упражнениями ==========
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def match_exercise_view(request):
+    """
+    Поиск подходящих упражнений по распознанному тексту
+    
+    POST /api/exercises/match/
+    {
+        "recognized_text": "дыхательное упражнение",
+        "category": "breathing",  // опционально
+        "confidence": 0.95  // опционально, уверенность ASR
+    }
+    
+    Response:
+    {
+        "matches": [
+            {
+                "exercise_id": "uuid",
+                "name": "Диафрагмальное дыхание",
+                "matched_variant": "дыхательное упражнение",
+                "similarity_score": 0.92,
+                "category": "breathing",
+                "category_display": "Дыхательные",
+                "description": "...",
+                "instructions": "...",
+                "extracted_params": {
+                    "repetitions": null,
+                    "duration": 300
+                }
+            }
+        ],
+        "auto_match": true,  // если similarity >= 0.85
+        "best_match": {...}  // если auto_match = true
+    }
+    """
+    serializer = ExerciseMatchRequestSerializer(data=request.data)
+    if not serializer.is_valid():
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    recognized_text = serializer.validated_data['recognized_text']
+    category = serializer.validated_data.get('category')
+    confidence = serializer.validated_data.get('confidence', 0.0)
+    
+    # Находим совпадения
+    matches = ExerciseMatcher.find_matches(
+        recognized_text=recognized_text,
+        category=category,
+        min_confidence=confidence
+    )
+    
+    # Проверяем, есть ли автоматическое совпадение
+    best_match = None
+    auto_match = False
+    
+    if matches:
+        top_match = matches[0]
+        if top_match['similarity_score'] >= ExerciseMatcher.AUTO_MATCH_THRESHOLD:
+            auto_match = True
+            best_match = top_match
+    
+    return Response({
+        'matches': matches,
+        'auto_match': auto_match,
+        'best_match': best_match,
+        'total_found': len(matches)
+    })
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def confirm_exercise_view(request):
+    """
+    Подтверждение выбора упражнения пользователем
+    Логирует выбор и обновляет статистику
+    
+    POST /api/exercises/confirm/
+    {
+        "exercise_id": "uuid",
+        "recognized_text": "дыхательное упражнение",
+        "similarity_score": 0.92,
+        "confidence_score": 0.95,
+        "duration_seconds": 300,
+        "repetitions_done": null,
+        "completed": true,
+        "user_rating": 5,
+        "user_notes": "Очень помогло"
+    }
+    """
+    serializer = ExerciseConfirmSerializer(data=request.data)
+    if not serializer.is_valid():
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    exercise_id = serializer.validated_data['exercise_id']
+    
+    try:
+        exercise = Exercise.objects.get(id=exercise_id, is_active=True)
+    except Exercise.DoesNotExist:
+        return Response(
+            {'message': 'Упражнение не найдено', 'error': 'EXERCISE_NOT_FOUND'},
+            status=status.HTTP_404_NOT_FOUND
+        )
+    
+    # Создаём лог использования
+    log = UserExerciseLog.objects.create(
+        user=request.user,
+        exercise=exercise,
+        recognized_text=serializer.validated_data['recognized_text'],
+        confidence_score=serializer.validated_data.get('confidence_score'),
+        similarity_score=serializer.validated_data.get('similarity_score'),
+        duration_seconds=serializer.validated_data.get('duration_seconds'),
+        repetitions_done=serializer.validated_data.get('repetitions_done'),
+        completed=serializer.validated_data.get('completed', False),
+        user_rating=serializer.validated_data.get('user_rating'),
+        user_notes=serializer.validated_data.get('user_notes', ''),
+    )
+    
+    # Обновляем счётчик использования упражнения
+    exercise.usage_count += 1
+    exercise.save(update_fields=['usage_count'])
+    
+    # Если это новый вариант названия с высокой схожестью, добавляем как алиас
+    recognized_text = serializer.validated_data['recognized_text']
+    similarity_score = serializer.validated_data.get('similarity_score', 0.0)
+    
+    if similarity_score >= 0.7:
+        normalized_text = ExerciseMatcher.normalize_text(recognized_text)
+        
+        # Проверяем, не существует ли уже такой алиас
+        existing_aliases = exercise.aliases.filter(alias__iexact=normalized_text)
+        if not existing_aliases.exists():
+            # Создаём новый алиас
+            ExerciseAlias.objects.create(
+                exercise=exercise,
+                alias=normalized_text,
+                match_count=1
+            )
+        else:
+            # Обновляем счётчик существующего алиаса
+            alias = existing_aliases.first()
+            alias.match_count += 1
+            alias.save(update_fields=['match_count'])
+    
+    return Response({
+        'message': 'Упражнение успешно подтверждено',
+        'log_id': str(log.id),
+        'exercise': ExerciseSerializer(exercise).data
+    }, status=status.HTTP_201_CREATED)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def list_exercises_view(request):
+    """
+    Получение списка всех доступных упражнений с фильтрацией
+    
+    GET /api/exercises/?category=breathing&difficulty=beginner&search=дыхание
+    """
+    category = request.query_params.get('category')
+    difficulty = request.query_params.get('difficulty')
+    search_query = request.query_params.get('search', '')
+    
+    exercises = ExerciseMatcher.search_exercises(
+        query=search_query,
+        category=category,
+        difficulty=difficulty,
+        limit=50
+    )
+    
+    return Response({
+        'exercises': exercises,
+        'total': len(exercises)
+    })
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def exercise_detail_view(request, exercise_id):
+    """
+    Получение детальной информации об упражнении
+    
+    GET /api/exercises/{exercise_id}/
+    """
+    try:
+        exercise = Exercise.objects.get(id=exercise_id, is_active=True)
+    except Exercise.DoesNotExist:
+        return Response(
+            {'message': 'Упражнение не найдено', 'error': 'EXERCISE_NOT_FOUND'},
+            status=status.HTTP_404_NOT_FOUND
+        )
+    
+    return Response(ExerciseSerializer(exercise).data)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def user_exercise_history_view(request):
+    """
+    История выполнения упражнений пользователем
+    
+    GET /api/exercises/history/?limit=20&offset=0
+    """
+    limit = int(request.query_params.get('limit', 20))
+    offset = int(request.query_params.get('offset', 0))
+    
+    logs = UserExerciseLog.objects.filter(user=request.user)[offset:offset+limit]
+    total_count = UserExerciseLog.objects.filter(user=request.user).count()
+    
+    return Response({
+        'history': UserExerciseLogSerializer(logs, many=True).data,
+        'total': total_count,
+        'limit': limit,
+        'offset': offset
+    })
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def exercise_categories_view(request):
+    """
+    Получение списка всех категорий упражнений
+    
+    GET /api/exercises/categories/
+    """
+    categories = [
+        {'value': cat[0], 'label': cat[1]}
+        for cat in Exercise.CATEGORY_CHOICES
+    ]
+    
+    difficulties = [
+        {'value': diff[0], 'label': diff[1]}
+        for diff in Exercise.DIFFICULTY_CHOICES
+    ]
+    
+    return Response({
+        'categories': categories,
+        'difficulties': difficulties
+    })
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def quick_match_exercise_view(request):
+    """
+    Быстрое сопоставление упражнения с базой (для UI с 1-3 карточками)
+    
+    POST /api/exercises/quick-match/
+    
+    Request:
+    {
+        "text": "жим лежа",
+        "language": "ru",  // или "en"
+        "max_results": 3   // опционально, по умолчанию 3
+    }
+    
+    Response:
+    {
+        "matches": [
+            {
+                "id": "uuid",
+                "name": "Barbell Bench Press",
+                "name_ru": "Жим штанги лёжа",
+                "similarity": 0.95,
+                "category": "physical",
+                "difficulty": "intermediate",
+                "image_main": "/media/exercises/uuid/main.jpg",
+                "image_secondary": "/media/exercises/uuid/secondary.jpg",
+                "description_short": "Базовое упражнение..."
+            }
+        ],
+        "exact_match": true,
+        "suggestions_count": 1,
+        "processing_time_ms": 45
+    }
+    """
+    import time
+    from .exercise_matcher import QuickExerciseMatcher
+    
+    start_time = time.time()
+    
+    # Валидация
+    text = request.data.get('text', '').strip()
+    language = request.data.get('language', 'ru')
+    max_results = min(int(request.data.get('max_results', 3)), 5)
+    
+    if not text:
+        return Response(
+            {"error": "Поле 'text' обязательно"},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    
+    if language not in ['ru', 'en']:
+        language = 'ru'
+    
+    # Поиск совпадений
+    try:
+        matcher = QuickExerciseMatcher()
+        matches = matcher.find_matches(
+            text=text,
+            language=language,
+            max_results=max_results
+        )
+        
+        # Определяем точное совпадение
+        exact_match = False
+        if matches and matches[0]['similarity'] >= QuickExerciseMatcher.EXACT_THRESHOLD:
+            exact_match = True
+        
+        processing_time = int((time.time() - start_time) * 1000)
+        
+        return Response({
+            "matches": matches,
+            "exact_match": exact_match,
+            "suggestions_count": len(matches),
+            "processing_time_ms": processing_time
+        })
+        
+    except Exception as e:
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error(f"Quick match error: {str(e)}", exc_info=True)
+        
+        return Response(
+            {"error": "Ошибка поиска упражнений"},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
+

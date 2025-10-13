@@ -1,0 +1,162 @@
+[
+  {
+    "model": "authentication.exercise",
+    "fields": {
+      "name": "Диафрагмальное дыхание",
+      "description": "Глубокое дыхание животом для расслабления и снижения стресса",
+      "category": "breathing",
+      "difficulty": "beginner",
+      "duration_min": 180,
+      "duration_max": 600,
+      "repetitions": null,
+      "instructions": "1. Сядьте или лягте в удобное положение\n2. Положите одну руку на грудь, другую на живот\n3. Медленно вдыхайте носом, надувая живот (4-5 секунд)\n4. Задержите дыхание на 2 секунды\n5. Медленно выдыхайте ртом (6-7 секунд)\n6. Повторяйте 3-5 минут",
+      "audio_url": null,
+      "video_url": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "authentication.exercise",
+    "fields": {
+      "name": "Дыхание 4-7-8",
+      "description": "Техника дыхания для быстрого успокоения и засыпания",
+      "category": "breathing",
+      "difficulty": "beginner",
+      "duration_min": 120,
+      "duration_max": 300,
+      "repetitions": 4,
+      "instructions": "1. Полностью выдохните через рот\n2. Вдыхайте носом на счёт 4\n3. Задержите дыхание на счёт 7\n4. Выдыхайте через рот на счёт 8\n5. Повторите цикл 4 раза",
+      "audio_url": null,
+      "video_url": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "authentication.exercise",
+    "fields": {
+      "name": "Прогрессивная мышечная релаксация",
+      "description": "Последовательное напряжение и расслабление групп мышц",
+      "category": "relaxation",
+      "difficulty": "intermediate",
+      "duration_min": 600,
+      "duration_max": 1200,
+      "repetitions": null,
+      "instructions": "1. Лягте на спину в тихом месте\n2. Начните с мышц лица - напрягите на 5 секунд, расслабьте\n3. Переходите к шее и плечам\n4. Затем руки, грудь, живот\n5. Ноги и стопы\n6. Почувствуйте полное расслабление тела",
+      "audio_url": null,
+      "video_url": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "authentication.exercise",
+    "fields": {
+      "name": "Медитация осознанности",
+      "description": "Практика концентрации на настоящем моменте",
+      "category": "meditation",
+      "difficulty": "beginner",
+      "duration_min": 300,
+      "duration_max": 1200,
+      "repetitions": null,
+      "instructions": "1. Сядьте в удобную позу с прямой спиной\n2. Закройте глаза или опустите взгляд\n3. Сосредоточьтесь на дыхании\n4. Наблюдайте за мыслями без оценки\n5. Возвращайте внимание к дыханию при отвлечении\n6. Практикуйте 5-20 минут",
+      "audio_url": null,
+      "video_url": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "authentication.exercise",
+    "fields": {
+      "name": "Сканирование тела",
+      "description": "Последовательное осознание ощущений в разных частях тела",
+      "category": "mindfulness",
+      "difficulty": "beginner",
+      "duration_min": 600,
+      "duration_max": 1800,
+      "repetitions": null,
+      "instructions": "1. Лягте на спину в удобном положении\n2. Начните с внимания к пальцам ног\n3. Медленно перемещайте внимание вверх по телу\n4. Замечайте все ощущения без суждений\n5. Дойдите до макушки головы\n6. Завершите глубоким вдохом и выдохом",
+      "audio_url": null,
+      "video_url": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "authentication.exercise",
+    "fields": {
+      "name": "Визуализация безопасного места",
+      "description": "Создание ментального образа спокойного и безопасного места",
+      "category": "visualization",
+      "difficulty": "beginner",
+      "duration_min": 300,
+      "duration_max": 900,
+      "repetitions": null,
+      "instructions": "1. Закройте глаза и сделайте несколько глубоких вдохов\n2. Представьте место, где вы чувствуете себя в безопасности\n3. Добавьте детали: цвета, звуки, запахи\n4. Почувствуйте себя в этом месте\n5. Задержитесь на 5-10 минут\n6. Медленно вернитесь в настоящее",
+      "audio_url": null,
+      "video_url": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "authentication.exercise",
+    "fields": {
+      "name": "Заземление 5-4-3-2-1",
+      "description": "Техника заземления через органы чувств при тревоге",
+      "category": "mindfulness",
+      "difficulty": "beginner",
+      "duration_min": 180,
+      "duration_max": 300,
+      "repetitions": null,
+      "instructions": "Назовите вслух или про себя:\n1. 5 вещей, которые вы ВИДИТЕ\n2. 4 вещи, которые вы СЛЫШИТЕ\n3. 3 вещи, которые вы ЧУВСТВУЕТЕ (тактильно)\n4. 2 вещи, которые вы ОБОНЯЕТЕ\n5. 1 вещь, которую вы ЧУВСТВУЕТЕ на вкус\nПовторите цикл при необходимости",
+      "audio_url": null,
+      "video_url": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "authentication.exercise",
+    "fields": {
+      "name": "Когнитивная реструктуризация",
+      "description": "Выявление и изменение негативных мыслительных паттернов",
+      "category": "cognitive",
+      "difficulty": "intermediate",
+      "duration_min": 600,
+      "duration_max": 1200,
+      "repetitions": null,
+      "instructions": "1. Определите негативную мысль\n2. Запишите её и связанные эмоции\n3. Найдите доказательства 'за' и 'против'\n4. Сформулируйте более сбалансированную мысль\n5. Оцените изменение эмоционального состояния\n6. Практикуйте регулярно",
+      "audio_url": null,
+      "video_url": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "authentication.exercise",
+    "fields": {
+      "name": "Лёгкая растяжка",
+      "description": "Мягкие упражнения на растяжку для снятия мышечного напряжения",
+      "category": "physical",
+      "difficulty": "beginner",
+      "duration_min": 300,
+      "duration_max": 900,
+      "repetitions": null,
+      "instructions": "1. Начните с шеи - медленные повороты и наклоны\n2. Плечи - круговые движения вперёд и назад\n3. Руки - потягивания вверх и в стороны\n4. Наклоны корпуса влево и вправо\n5. Растяжка ног и голеностопа\n6. Держите каждую позу 15-30 секунд",
+      "audio_url": null,
+      "video_url": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "authentication.exercise",
+    "fields": {
+      "name": "Квадратное дыхание",
+      "description": "Техника дыхания с равными интервалами для концентрации",
+      "category": "breathing",
+      "difficulty": "beginner",
+      "duration_min": 120,
+      "duration_max": 600,
+      "repetitions": null,
+      "instructions": "1. Вдох на 4 счёта\n2. Задержка на 4 счёта\n3. Выдох на 4 счёта\n4. Задержка на 4 счёта\n5. Повторите цикл 5-10 раз\n6. Можно увеличить до 6-8 счётов",
+      "audio_url": null,
+      "video_url": null,
+      "is_active": true
+    }
+  }
+]

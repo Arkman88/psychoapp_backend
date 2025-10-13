@@ -10,6 +10,80 @@ Django REST API сервер для мобильного приложения Ps
 - ✅ Управление профилем пользователя
 - ✅ PostgreSQL база данных
 - ✅ Интеграция с AI сервисами (Yandex GPT, ChatGPT, DeepSeek)
+- ✅ **873 упражнения** с изображениями и мультиязычной поддержкой
+- ✅ **Fuzzy matching** для распознавания упражнений голосом/текстом
+- ✅ **Асинхронный перевод** через Yandex Cloud Translate API
+
+## 📚 Документация
+
+### Система упражнений
+- **[EXERCISE_SYSTEM_README.md](EXERCISE_SYSTEM_README.md)** - Полная система упражнений и API
+- **[TRANSLATION_README.md](TRANSLATION_README.md)** - Перевод упражнений на русский
+- **[EXERCISE_MATCHING_README.md](EXERCISE_MATCHING_README.md)** - Алгоритмы сопоставления
+
+### Быстрое распознавание (NEW! 🆕)
+- **[QUICK_MATCH_SUMMARY.md](QUICK_MATCH_SUMMARY.md)** - Сводка реализованной системы
+- **[EXERCISE_QUICK_MATCH_README.md](EXERCISE_QUICK_MATCH_README.md)** - Техническая документация
+- **[QUICK_MATCH_INTEGRATION.md](QUICK_MATCH_INTEGRATION.md)** - Инструкция для фронта
+
+## 🚀 Быстрый старт: Распознавание упражнений
+
+### Backend (уже работает!)
+
+```bash
+# API endpoint готов к использованию
+POST /api/exercises/quick-match/
+```
+
+**Пример запроса:**
+```bash
+curl -X POST http://localhost:8000/api/exercises/quick-match/ \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"text":"жим лежа","language":"ru","max_results":3}'
+```
+
+**Ответ:**
+```json
+{
+  "matches": [
+    {
+      "id": "uuid",
+      "name": "Barbell Bench Press",
+      "name_ru": "Жим штанги лёжа",
+      "similarity": 0.95,
+      "image_main": "/media/exercises/...",
+      ...
+    }
+  ],
+  "exact_match": true,
+  "processing_time_ms": 45
+}
+```
+
+### Frontend (React Native)
+
+1. **Установить Voice Recognition:**
+```bash
+npm install @react-native-voice/voice
+```
+
+2. **Использовать API:**
+```typescript
+import { quickMatchExercise } from './services/exerciseQuickMatch';
+
+const result = await quickMatchExercise("жим лежа", "ru");
+
+if (result.exact_match) {
+  // Автоматически выбрать
+  selectExercise(result.matches[0]);
+} else {
+  // Показать 1-3 карточки на выбор
+  showExerciseCards(result.matches);
+}
+```
+
+📖 **Подробнее:** [QUICK_MATCH_INTEGRATION.md](QUICK_MATCH_INTEGRATION.md)
 
 ## Установка
 

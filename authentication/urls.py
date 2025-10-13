@@ -28,4 +28,13 @@ urlpatterns = [
     path('analyze-image/', views.analyze_image_view, name='analyze_image'),
     path('parse-workout/', views.parse_workout_text_view, name='parse_workout'),
     path('ai-recommendations/', views.ai_recommendations_view, name='ai_recommendations'),
+    
+    # Exercise Matching and Management
+    path('exercises/match/', views.match_exercise_view, name='match_exercise'),
+    path('exercises/quick-match/', views.quick_match_exercise_view, name='quick_match_exercise'),
+    path('exercises/confirm/', views.confirm_exercise_view, name='confirm_exercise'),
+    path('exercises/', views.list_exercises_view, name='list_exercises'),
+    path('exercises/<uuid:exercise_id>/', views.exercise_detail_view, name='exercise_detail'),
+    path('exercises/history/', views.user_exercise_history_view, name='exercise_history'),
+    path('exercises/categories/', views.exercise_categories_view, name='exercise_categories'),
 ]

@@ -1,0 +1,1973 @@
+{
+  "3/4 Sit-Up": [
+    "3/4 Sit-Up (body only)"
+  ],
+  "90/90 Hamstring": [
+    "90/90 Hamstring (body only)"
+  ],
+  "Ab Crunch Machine": [],
+  "Ab Roller": [
+    "Ab Roller (other)"
+  ],
+  "Adductor": [
+    "Adductor (foam roll)"
+  ],
+  "Adductor/Groin": [],
+  "Advanced Kettlebell Windmill": [
+    "Advanced Kettlebell Windmill (kettlebells)"
+  ],
+  "Air Bike": [
+    "Air Bike (body only)"
+  ],
+  "All Fours Quad Stretch": [
+    "All Fours Quad Stretch (body only)"
+  ],
+  "Alternate Hammer Curl": [
+    "Alternate Hammer Curl (dumbbell)"
+  ],
+  "Alternate Heel Touchers": [
+    "Alternate Heel Touchers (body only)"
+  ],
+  "Alternate Incline Dumbbell Curl": [],
+  "Alternate Leg Diagonal Bound": [],
+  "Alternating Cable Shoulder Press": [],
+  "Alternating Deltoid Raise": [
+    "Alternating Deltoid Raise (dumbbell)"
+  ],
+  "Alternating Floor Press": [
+    "Alternating Floor Press (kettlebells)"
+  ],
+  "Alternating Hang Clean": [
+    "Alternating Hang Clean (kettlebells)"
+  ],
+  "Alternating Kettlebell Press": [
+    "Alternating Kettlebell Press (kettlebells)"
+  ],
+  "Alternating Kettlebell Row": [
+    "Alternating Kettlebell Row (kettlebells)"
+  ],
+  "Alternating Renegade Row": [
+    "Alternating Renegade Row (kettlebells)"
+  ],
+  "Ankle Circles": [],
+  "Ankle On The Knee": [],
+  "Anterior Tibialis-SMR": [
+    "Anterior Tibialis-SMR (other)"
+  ],
+  "Anti-Gravity Press": [
+    "Anti-Gravity Press (barbell)"
+  ],
+  "Arm Circles": [],
+  "Arnold Dumbbell Press": [],
+  "Around The Worlds": [
+    "Around The Worlds (dumbbell)"
+  ],
+  "Atlas Stone Trainer": [
+    "Atlas Stone Trainer (other)"
+  ],
+  "Atlas Stones": [
+    "Atlas Stones (other)"
+  ],
+  "Axle Deadlift": [
+    "Axle Deadlift (other)"
+  ],
+  "Back Flyes - With Bands": [],
+  "Backward Drag": [
+    "Backward Drag (other)"
+  ],
+  "Backward Medicine Ball Throw": [],
+  "Balance Board": [
+    "Balance Board (other)"
+  ],
+  "Ball Leg Curl": [
+    "Ball Leg Curl (exercise ball)"
+  ],
+  "Band Assisted Pull-Up": [
+    "Band Assisted Pull-Up (other)"
+  ],
+  "Band Good Morning": [
+    "Band Good Morning (bands)"
+  ],
+  "Band Good Morning (Pull Through)": [
+    "Band Good Morning (Pull Through) (bands)"
+  ],
+  "Band Hip Adductions": [
+    "Band Hip Adductions (bands)"
+  ],
+  "Band Pull Apart": [
+    "Band Pull Apart (bands)"
+  ],
+  "Band Skull Crusher": [
+    "Band Skull Crusher (bands)"
+  ],
+  "Barbell Ab Rollout": [],
+  "Barbell Ab Rollout - On Knees": [],
+  "Barbell Bench Press - Medium Grip": [],
+  "Barbell Curl": [],
+  "Barbell Curls Lying Against An Incline": [],
+  "Barbell Deadlift": [],
+  "Barbell Full Squat": [],
+  "Barbell Glute Bridge": [],
+  "Barbell Guillotine Bench Press": [],
+  "Barbell Hack Squat": [],
+  "Barbell Hip Thrust": [],
+  "Barbell Incline Bench Press - Medium Grip": [],
+  "Barbell Incline Shoulder Raise": [],
+  "Barbell Lunge": [],
+  "Barbell Rear Delt Row": [],
+  "Barbell Rollout from Bench": [],
+  "Barbell Seated Calf Raise": [],
+  "Barbell Shoulder Press": [],
+  "Barbell Shrug": [],
+  "Barbell Shrug Behind The Back": [],
+  "Barbell Side Bend": [],
+  "Barbell Side Split Squat": [],
+  "Barbell Squat": [],
+  "Barbell Squat To A Bench": [],
+  "Barbell Step Ups": [],
+  "Barbell Walking Lunge": [],
+  "Battling Ropes": [
+    "Battling Ropes (other)"
+  ],
+  "Bear Crawl Sled Drags": [
+    "Bear Crawl Sled Drags (other)"
+  ],
+  "Behind Head Chest Stretch": [
+    "Behind Head Chest Stretch (other)"
+  ],
+  "Bench Dips": [
+    "Bench Dips (body only)"
+  ],
+  "Bench Jump": [
+    "Bench Jump (body only)"
+  ],
+  "Bench Press - Powerlifting": [
+    "Bench Press - Powerlifting (barbell)"
+  ],
+  "Bench Press - With Bands": [],
+  "Bench Press with Chains": [
+    "Bench Press with Chains (barbell)"
+  ],
+  "Bench Sprint": [
+    "Bench Sprint (other)"
+  ],
+  "Bent-Arm Barbell Pullover": [],
+  "Bent-Arm Dumbbell Pullover": [],
+  "Bent-Knee Hip Raise": [
+    "Bent-Knee Hip Raise (body only)"
+  ],
+  "Bent Over Barbell Row": [],
+  "Bent Over Dumbbell Rear Delt Raise With Head On Bench": [],
+  "Bent Over Low-Pulley Side Lateral": [
+    "Bent Over Low-Pulley Side Lateral (cable)"
+  ],
+  "Bent Over One-Arm Long Bar Row": [
+    "Bent Over One-Arm Long Bar Row (barbell)"
+  ],
+  "Bent Over Two-Arm Long Bar Row": [
+    "Bent Over Two-Arm Long Bar Row (barbell)"
+  ],
+  "Bent Over Two-Dumbbell Row": [],
+  "Bent Over Two-Dumbbell Row With Palms In": [],
+  "Bent Press": [
+    "Bent Press (kettlebells)"
+  ],
+  "Bicycling, Stationary": [
+    "Bicycling, Stationary (machine)"
+  ],
+  "Bicycling": [
+    "Bicycling (other)"
+  ],
+  "Board Press": [
+    "Board Press (barbell)"
+  ],
+  "Body-Up": [
+    "Body-Up (body only)"
+  ],
+  "Body Tricep Press": [
+    "Body Tricep Press (body only)"
+  ],
+  "Bodyweight Flyes": [
+    "Bodyweight Flyes (e-z curl bar)"
+  ],
+  "Bodyweight Mid Row": [
+    "Bodyweight Mid Row (other)"
+  ],
+  "Bodyweight Squat": [
+    "Bodyweight Squat (body only)"
+  ],
+  "Bodyweight Walking Lunge": [],
+  "Bosu Ball Cable Crunch With Side Bends": [],
+  "Bottoms-Up Clean From The Hang Position": [
+    "Bottoms-Up Clean From The Hang Position (kettlebells)"
+  ],
+  "Bottoms Up": [
+    "Bottoms Up (body only)"
+  ],
+  "Box Jump (Multiple Response)": [
+    "Box Jump (Multiple Response) (other)"
+  ],
+  "Box Skip": [
+    "Box Skip (other)"
+  ],
+  "Box Squat": [
+    "Box Squat (barbell)"
+  ],
+  "Box Squat with Bands": [
+    "Box Squat with Bands (barbell)"
+  ],
+  "Box Squat with Chains": [
+    "Box Squat with Chains (barbell)"
+  ],
+  "Brachialis-SMR": [
+    "Brachialis-SMR (foam roll)"
+  ],
+  "Bradford/Rocky Presses": [
+    "Bradford/Rocky Presses (barbell)"
+  ],
+  "Butt-Ups": [
+    "Butt-Ups (body only)"
+  ],
+  "Butt Lift (Bridge)": [
+    "Butt Lift (Bridge) (body only)"
+  ],
+  "Butterfly": [
+    "Butterfly (machine)"
+  ],
+  "Cable Chest Press": [],
+  "Cable Crossover": [],
+  "Cable Crunch": [],
+  "Cable Deadlifts": [],
+  "Cable Hammer Curls - Rope Attachment": [],
+  "Cable Hip Adduction": [],
+  "Cable Incline Pushdown": [],
+  "Cable Incline Triceps Extension": [],
+  "Cable Internal Rotation": [],
+  "Cable Iron Cross": [],
+  "Cable Judo Flip": [],
+  "Cable Lying Triceps Extension": [],
+  "Cable One Arm Tricep Extension": [],
+  "Cable Preacher Curl": [],
+  "Cable Rear Delt Fly": [],
+  "Cable Reverse Crunch": [],
+  "Cable Rope Overhead Triceps Extension": [],
+  "Cable Rope Rear-Delt Rows": [],
+  "Cable Russian Twists": [],
+  "Cable Seated Crunch": [],
+  "Cable Seated Lateral Raise": [],
+  "Cable Shoulder Press": [],
+  "Cable Shrugs": [],
+  "Cable Wrist Curl": [],
+  "Calf-Machine Shoulder Shrug": [],
+  "Calf Press": [
+    "Calf Press (machine)"
+  ],
+  "Calf Press On The Leg Press Machine": [],
+  "Calf Raise On A Dumbbell": [],
+  "Calf Raises - With Bands": [],
+  "Calf Stretch Elbows Against Wall": [],
+  "Calf Stretch Hands Against Wall": [],
+  "Calves-SMR": [
+    "Calves-SMR (foam roll)"
+  ],
+  "Car Deadlift": [
+    "Car Deadlift (other)"
+  ],
+  "Car Drivers": [
+    "Car Drivers (barbell)"
+  ],
+  "Carioca Quick Step": [],
+  "Cat Stretch": [],
+  "Catch and Overhead Throw": [
+    "Catch and Overhead Throw (medicine ball)"
+  ],
+  "Chain Handle Extension": [
+    "Chain Handle Extension (other)"
+  ],
+  "Chain Press": [
+    "Chain Press (other)"
+  ],
+  "Chair Leg Extended Stretch": [
+    "Chair Leg Extended Stretch (other)"
+  ],
+  "Chair Lower Back Stretch": [],
+  "Chair Squat": [
+    "Chair Squat (machine)"
+  ],
+  "Chair Upper Body Stretch": [
+    "Chair Upper Body Stretch (other)"
+  ],
+  "Chest And Front Of Shoulder Stretch": [
+    "Chest And Front Of Shoulder Stretch (other)"
+  ],
+  "Chest Push (multiple response)": [
+    "Chest Push (multiple response) (medicine ball)"
+  ],
+  "Chest Push (single response)": [
+    "Chest Push (single response) (medicine ball)"
+  ],
+  "Chest Push from 3 point stance": [
+    "Chest Push from 3 point stance (medicine ball)"
+  ],
+  "Chest Push with Run Release": [
+    "Chest Push with Run Release (medicine ball)"
+  ],
+  "Chest Stretch on Stability Ball": [
+    "Chest Stretch on Stability Ball (exercise ball)"
+  ],
+  "Child's Pose": [],
+  "Chin-Up": [
+    "Chin-Up (body only)"
+  ],
+  "Chin To Chest Stretch": [],
+  "Circus Bell": [
+    "Circus Bell (other)"
+  ],
+  "Clean": [
+    "Clean (barbell)"
+  ],
+  "Clean Deadlift": [
+    "Clean Deadlift (barbell)"
+  ],
+  "Clean Pull": [
+    "Clean Pull (barbell)"
+  ],
+  "Clean Shrug": [
+    "Clean Shrug (barbell)"
+  ],
+  "Clean and Jerk": [
+    "Clean and Jerk (barbell)"
+  ],
+  "Clean and Press": [
+    "Clean and Press (barbell)"
+  ],
+  "Clean from Blocks": [
+    "Clean from Blocks (barbell)"
+  ],
+  "Clock Push-Up": [
+    "Clock Push-Up (body only)"
+  ],
+  "Close-Grip Barbell Bench Press": [],
+  "Close-Grip Dumbbell Press": [],
+  "Close-Grip EZ-Bar Curl with Band": [
+    "Close-Grip EZ-Bar Curl with Band (e-z curl bar)"
+  ],
+  "Close-Grip EZ-Bar Press": [
+    "Close-Grip EZ-Bar Press (e-z curl bar)"
+  ],
+  "Close-Grip EZ Bar Curl": [
+    "Close-Grip EZ Bar Curl (barbell)"
+  ],
+  "Close-Grip Front Lat Pulldown": [
+    "Close-Grip Front Lat Pulldown (cable)"
+  ],
+  "Close-Grip Push-Up off of a Dumbbell": [
+    "Close-Grip Push-Up off of a Dumbbell (body only)"
+  ],
+  "Close-Grip Standing Barbell Curl": [],
+  "Cocoons": [
+    "Cocoons (body only)"
+  ],
+  "Conan's Wheel": [
+    "Conan's Wheel (other)"
+  ],
+  "Concentration Curls": [
+    "Concentration Curls (dumbbell)"
+  ],
+  "Cross-Body Crunch": [
+    "Cross-Body Crunch (body only)"
+  ],
+  "Cross Body Hammer Curl": [
+    "Cross Body Hammer Curl (dumbbell)"
+  ],
+  "Cross Over - With Bands": [],
+  "Crossover Reverse Lunge": [],
+  "Crucifix": [
+    "Crucifix (other)"
+  ],
+  "Crunch - Hands Overhead": [
+    "Crunch - Hands Overhead (body only)"
+  ],
+  "Crunch - Legs On Exercise Ball": [
+    "Crunch - Legs On Exercise Ball (body only)"
+  ],
+  "Crunches": [
+    "Crunches (body only)"
+  ],
+  "Cuban Press": [
+    "Cuban Press (dumbbell)"
+  ],
+  "Dancer's Stretch": [],
+  "Dead Bug": [
+    "Dead Bug (body only)"
+  ],
+  "Deadlift with Bands": [
+    "Deadlift with Bands (barbell)"
+  ],
+  "Deadlift with Chains": [
+    "Deadlift with Chains (barbell)"
+  ],
+  "Decline Barbell Bench Press": [],
+  "Decline Close-Grip Bench To Skull Crusher": [
+    "Decline Close-Grip Bench To Skull Crusher (barbell)"
+  ],
+  "Decline Crunch": [
+    "Decline Crunch (body only)"
+  ],
+  "Decline Dumbbell Bench Press": [],
+  "Decline Dumbbell Flyes": [],
+  "Decline Dumbbell Triceps Extension": [],
+  "Decline EZ Bar Triceps Extension": [
+    "Decline EZ Bar Triceps Extension (barbell)"
+  ],
+  "Decline Oblique Crunch": [
+    "Decline Oblique Crunch (body only)"
+  ],
+  "Decline Push-Up": [],
+  "Decline Reverse Crunch": [
+    "Decline Reverse Crunch (body only)"
+  ],
+  "Decline Smith Press": [
+    "Decline Smith Press (machine)"
+  ],
+  "Deficit Deadlift": [
+    "Deficit Deadlift (barbell)"
+  ],
+  "Depth Jump Leap": [
+    "Depth Jump Leap (other)"
+  ],
+  "Dip Machine": [],
+  "Dips - Chest Version": [
+    "Dips - Chest Version (other)"
+  ],
+  "Dips - Triceps Version": [
+    "Dips - Triceps Version (body only)"
+  ],
+  "Donkey Calf Raises": [
+    "Donkey Calf Raises (other)"
+  ],
+  "Double Kettlebell Alternating Hang Clean": [
+    "Double Kettlebell Alternating Hang Clean (kettlebells)"
+  ],
+  "Double Kettlebell Jerk": [
+    "Double Kettlebell Jerk (kettlebells)"
+  ],
+  "Double Kettlebell Push Press": [
+    "Double Kettlebell Push Press (kettlebells)"
+  ],
+  "Double Kettlebell Snatch": [
+    "Double Kettlebell Snatch (kettlebells)"
+  ],
+  "Double Kettlebell Windmill": [
+    "Double Kettlebell Windmill (kettlebells)"
+  ],
+  "Double Leg Butt Kick": [
+    "Double Leg Butt Kick (body only)"
+  ],
+  "Downward Facing Balance": [
+    "Downward Facing Balance (exercise ball)"
+  ],
+  "Drag Curl": [
+    "Drag Curl (barbell)"
+  ],
+  "Drop Push": [
+    "Drop Push (other)"
+  ],
+  "Dumbbell Alternate Bicep Curl": [],
+  "Dumbbell Bench Press": [],
+  "Dumbbell Bench Press with Neutral Grip": [],
+  "Dumbbell Bicep Curl": [],
+  "Dumbbell Clean": [],
+  "Dumbbell Floor Press": [],
+  "Dumbbell Flyes": [],
+  "Dumbbell Incline Row": [],
+  "Dumbbell Incline Shoulder Raise": [],
+  "Dumbbell Lunges": [],
+  "Dumbbell Lying One-Arm Rear Lateral Raise": [],
+  "Dumbbell Lying Pronation": [],
+  "Dumbbell Lying Rear Lateral Raise": [],
+  "Dumbbell Lying Supination": [],
+  "Dumbbell One-Arm Shoulder Press": [],
+  "Dumbbell One-Arm Triceps Extension": [],
+  "Dumbbell One-Arm Upright Row": [],
+  "Dumbbell Prone Incline Curl": [],
+  "Dumbbell Raise": [],
+  "Dumbbell Rear Lunge": [],
+  "Dumbbell Scaption": [],
+  "Dumbbell Seated Box Jump": [],
+  "Dumbbell Seated One-Leg Calf Raise": [],
+  "Dumbbell Shoulder Press": [],
+  "Dumbbell Shrug": [],
+  "Dumbbell Side Bend": [],
+  "Dumbbell Squat": [],
+  "Dumbbell Squat To A Bench": [],
+  "Dumbbell Step Ups": [],
+  "Dumbbell Tricep Extension -Pronated Grip": [],
+  "Dynamic Back Stretch": [],
+  "Dynamic Chest Stretch": [],
+  "EZ-Bar Curl": [
+    "EZ-Bar Curl (e-z curl bar)"
+  ],
+  "EZ-Bar Skullcrusher": [
+    "EZ-Bar Skullcrusher (e-z curl bar)"
+  ],
+  "Elbow Circles": [],
+  "Elbow to Knee": [
+    "Elbow to Knee (body only)"
+  ],
+  "Elbows Back": [],
+  "Elevated Back Lunge": [
+    "Elevated Back Lunge (barbell)"
+  ],
+  "Elevated Cable Rows": [],
+  "Elliptical Trainer": [
+    "Elliptical Trainer (machine)"
+  ],
+  "Exercise Ball Crunch": [],
+  "Exercise Ball Pull-In": [],
+  "Extended Range One-Arm Kettlebell Floor Press": [
+    "Extended Range One-Arm Kettlebell Floor Press (kettlebells)"
+  ],
+  "External Rotation": [
+    "External Rotation (dumbbell)"
+  ],
+  "External Rotation with Band": [
+    "External Rotation with Band (bands)"
+  ],
+  "External Rotation with Cable": [],
+  "Face Pull": [
+    "Face Pull (cable)"
+  ],
+  "Farmer's Walk": [
+    "Farmer's Walk (other)"
+  ],
+  "Fast Skipping": [
+    "Fast Skipping (body only)"
+  ],
+  "Finger Curls": [
+    "Finger Curls (barbell)"
+  ],
+  "Flat Bench Cable Flyes": [],
+  "Flat Bench Leg Pull-In": [
+    "Flat Bench Leg Pull-In (body only)"
+  ],
+  "Flat Bench Lying Leg Raise": [
+    "Flat Bench Lying Leg Raise (body only)"
+  ],
+  "Flexor Incline Dumbbell Curls": [],
+  "Floor Glute-Ham Raise": [],
+  "Floor Press": [
+    "Floor Press (barbell)"
+  ],
+  "Floor Press with Chains": [
+    "Floor Press with Chains (barbell)"
+  ],
+  "Flutter Kicks": [
+    "Flutter Kicks (body only)"
+  ],
+  "Foot-SMR": [
+    "Foot-SMR (other)"
+  ],
+  "Forward Drag with Press": [
+    "Forward Drag with Press (other)"
+  ],
+  "Frankenstein Squat": [
+    "Frankenstein Squat (barbell)"
+  ],
+  "Freehand Jump Squat": [
+    "Freehand Jump Squat (body only)"
+  ],
+  "Frog Hops": [],
+  "Frog Sit-Ups": [
+    "Frog Sit-Ups (body only)"
+  ],
+  "Front Barbell Squat": [],
+  "Front Barbell Squat To A Bench": [],
+  "Front Box Jump": [
+    "Front Box Jump (other)"
+  ],
+  "Front Cable Raise": [],
+  "Front Cone Hops (or hurdle hops)": [
+    "Front Cone Hops (or hurdle hops) (other)"
+  ],
+  "Front Dumbbell Raise": [],
+  "Front Incline Dumbbell Raise": [],
+  "Front Leg Raises": [
+    "Front Leg Raises (body only)"
+  ],
+  "Front Plate Raise": [
+    "Front Plate Raise (other)"
+  ],
+  "Front Raise And Pullover": [
+    "Front Raise And Pullover (barbell)"
+  ],
+  "Front Squat (Clean Grip)": [
+    "Front Squat (Clean Grip) (barbell)"
+  ],
+  "Front Squats With Two Kettlebells": [],
+  "Front Two-Dumbbell Raise": [],
+  "Full Range-Of-Motion Lat Pulldown": [
+    "Full Range-Of-Motion Lat Pulldown (cable)"
+  ],
+  "Gironda Sternum Chins": [
+    "Gironda Sternum Chins (other)"
+  ],
+  "Glute Ham Raise": [
+    "Glute Ham Raise (machine)"
+  ],
+  "Glute Kickback": [
+    "Glute Kickback (body only)"
+  ],
+  "Goblet Squat": [
+    "Goblet Squat (kettlebells)"
+  ],
+  "Good Morning": [
+    "Good Morning (barbell)"
+  ],
+  "Good Morning off Pins": [
+    "Good Morning off Pins (barbell)"
+  ],
+  "Gorilla Chin/Crunch": [
+    "Gorilla Chin/Crunch (body only)"
+  ],
+  "Groin and Back Stretch": [],
+  "Groiners": [
+    "Groiners (body only)"
+  ],
+  "Hack Squat": [
+    "Hack Squat (machine)"
+  ],
+  "Hammer Curls": [
+    "Hammer Curls (dumbbell)"
+  ],
+  "Hammer Grip Incline DB Bench Press": [
+    "Hammer Grip Incline DB Bench Press (dumbbell)"
+  ],
+  "Hamstring-SMR": [
+    "Hamstring-SMR (foam roll)"
+  ],
+  "Hamstring Stretch": [],
+  "Handstand Push-Ups": [
+    "Handstand Push-Ups (body only)"
+  ],
+  "Hang Clean": [
+    "Hang Clean (barbell)"
+  ],
+  "Hang Clean - Below the Knees": [
+    "Hang Clean - Below the Knees (barbell)"
+  ],
+  "Hang Snatch": [
+    "Hang Snatch (barbell)"
+  ],
+  "Hang Snatch - Below Knees": [
+    "Hang Snatch - Below Knees (barbell)"
+  ],
+  "Hanging Bar Good Morning": [
+    "Hanging Bar Good Morning (barbell)"
+  ],
+  "Hanging Leg Raise": [
+    "Hanging Leg Raise (body only)"
+  ],
+  "Hanging Pike": [
+    "Hanging Pike (body only)"
+  ],
+  "Heaving Snatch Balance": [
+    "Heaving Snatch Balance (barbell)"
+  ],
+  "Heavy Bag Thrust": [
+    "Heavy Bag Thrust (other)"
+  ],
+  "High Cable Curls": [],
+  "Hip Circles (prone)": [
+    "Hip Circles (prone) (body only)"
+  ],
+  "Hip Extension with Bands": [],
+  "Hip Flexion with Band": [
+    "Hip Flexion with Band (bands)"
+  ],
+  "Hip Lift with Band": [
+    "Hip Lift with Band (bands)"
+  ],
+  "Hug A Ball": [
+    "Hug A Ball (exercise ball)"
+  ],
+  "Hug Knees To Chest": [],
+  "Hurdle Hops": [
+    "Hurdle Hops (other)"
+  ],
+  "Hyperextensions (Back Extensions)": [
+    "Hyperextensions (Back Extensions) (other)"
+  ],
+  "Hyperextensions With No Hyperextension Bench": [
+    "Hyperextensions With No Hyperextension Bench (body only)"
+  ],
+  "IT Band and Glute Stretch": [
+    "IT Band and Glute Stretch (other)"
+  ],
+  "Iliotibial Tract-SMR": [
+    "Iliotibial Tract-SMR (foam roll)"
+  ],
+  "Inchworm": [
+    "Inchworm (body only)"
+  ],
+  "Incline Barbell Triceps Extension": [],
+  "Incline Bench Pull": [
+    "Incline Bench Pull (barbell)"
+  ],
+  "Incline Cable Chest Press": [],
+  "Incline Cable Flye": [],
+  "Incline Dumbbell Bench With Palms Facing In": [],
+  "Incline Dumbbell Curl": [],
+  "Incline Dumbbell Flyes": [],
+  "Incline Dumbbell Flyes - With A Twist": [],
+  "Incline Dumbbell Press": [],
+  "Incline Hammer Curls": [
+    "Incline Hammer Curls (dumbbell)"
+  ],
+  "Incline Inner Biceps Curl": [
+    "Incline Inner Biceps Curl (dumbbell)"
+  ],
+  "Incline Push-Up": [
+    "Incline Push-Up (body only)"
+  ],
+  "Incline Push-Up Close-Grip": [
+    "Incline Push-Up Close-Grip (body only)"
+  ],
+  "Incline Push-Up Depth Jump": [
+    "Incline Push-Up Depth Jump (other)"
+  ],
+  "Incline Push-Up Medium": [
+    "Incline Push-Up Medium (body only)"
+  ],
+  "Incline Push-Up Reverse Grip": [
+    "Incline Push-Up Reverse Grip (body only)"
+  ],
+  "Incline Push-Up Wide": [
+    "Incline Push-Up Wide (body only)"
+  ],
+  "Intermediate Groin Stretch": [
+    "Intermediate Groin Stretch (other)"
+  ],
+  "Intermediate Hip Flexor and Quad Stretch": [
+    "Intermediate Hip Flexor and Quad Stretch (other)"
+  ],
+  "Internal Rotation with Band": [
+    "Internal Rotation with Band (bands)"
+  ],
+  "Inverted Row": [],
+  "Inverted Row with Straps": [
+    "Inverted Row with Straps (other)"
+  ],
+  "Iron Cross": [
+    "Iron Cross (dumbbell)"
+  ],
+  "Iron Crosses (stretch)": [],
+  "Isometric Chest Squeezes": [
+    "Isometric Chest Squeezes (body only)"
+  ],
+  "Isometric Neck Exercise - Front And Back": [
+    "Isometric Neck Exercise - Front And Back (body only)"
+  ],
+  "Isometric Neck Exercise - Sides": [
+    "Isometric Neck Exercise - Sides (body only)"
+  ],
+  "Isometric Wipers": [
+    "Isometric Wipers (body only)"
+  ],
+  "JM Press": [
+    "JM Press (barbell)"
+  ],
+  "Jackknife Sit-Up": [
+    "Jackknife Sit-Up (body only)"
+  ],
+  "Janda Sit-Up": [
+    "Janda Sit-Up (body only)"
+  ],
+  "Jefferson Squats": [
+    "Jefferson Squats (barbell)"
+  ],
+  "Jerk Balance": [
+    "Jerk Balance (barbell)"
+  ],
+  "Jerk Dip Squat": [
+    "Jerk Dip Squat (barbell)"
+  ],
+  "Jogging, Treadmill": [
+    "Jogging, Treadmill (machine)"
+  ],
+  "Keg Load": [
+    "Keg Load (other)"
+  ],
+  "Kettlebell Arnold Press": [
+    "Kettlebell Arnold Press (kettlebells)"
+  ],
+  "Kettlebell Dead Clean": [
+    "Kettlebell Dead Clean (kettlebells)"
+  ],
+  "Kettlebell Figure 8": [
+    "Kettlebell Figure 8 (kettlebells)"
+  ],
+  "Kettlebell Hang Clean": [
+    "Kettlebell Hang Clean (kettlebells)"
+  ],
+  "Kettlebell One-Legged Deadlift": [
+    "Kettlebell One-Legged Deadlift (kettlebells)"
+  ],
+  "Kettlebell Pass Between The Legs": [
+    "Kettlebell Pass Between The Legs (kettlebells)"
+  ],
+  "Kettlebell Pirate Ships": [
+    "Kettlebell Pirate Ships (kettlebells)"
+  ],
+  "Kettlebell Pistol Squat": [
+    "Kettlebell Pistol Squat (kettlebells)"
+  ],
+  "Kettlebell Seated Press": [
+    "Kettlebell Seated Press (kettlebells)"
+  ],
+  "Kettlebell Seesaw Press": [
+    "Kettlebell Seesaw Press (kettlebells)"
+  ],
+  "Kettlebell Sumo High Pull": [
+    "Kettlebell Sumo High Pull (kettlebells)"
+  ],
+  "Kettlebell Thruster": [
+    "Kettlebell Thruster (kettlebells)"
+  ],
+  "Kettlebell Turkish Get-Up (Lunge style)": [
+    "Kettlebell Turkish Get-Up (Lunge style) (kettlebells)"
+  ],
+  "Kettlebell Turkish Get-Up (Squat style)": [
+    "Kettlebell Turkish Get-Up (Squat style) (kettlebells)"
+  ],
+  "Kettlebell Windmill": [
+    "Kettlebell Windmill (kettlebells)"
+  ],
+  "Kipping Muscle Up": [
+    "Kipping Muscle Up (other)"
+  ],
+  "Knee Across The Body": [],
+  "Knee Circles": [
+    "Knee Circles (body only)"
+  ],
+  "Knee/Hip Raise On Parallel Bars": [
+    "Knee/Hip Raise On Parallel Bars (other)"
+  ],
+  "Knee Tuck Jump": [
+    "Knee Tuck Jump (body only)"
+  ],
+  "Kneeling Arm Drill": [],
+  "Kneeling Cable Crunch With Alternating Oblique Twists": [],
+  "Kneeling Cable Triceps Extension": [],
+  "Kneeling Forearm Stretch": [],
+  "Kneeling High Pulley Row": [
+    "Kneeling High Pulley Row (cable)"
+  ],
+  "Kneeling Hip Flexor": [],
+  "Kneeling Jump Squat": [
+    "Kneeling Jump Squat (barbell)"
+  ],
+  "Kneeling Single-Arm High Pulley Row": [
+    "Kneeling Single-Arm High Pulley Row (cable)"
+  ],
+  "Kneeling Squat": [
+    "Kneeling Squat (barbell)"
+  ],
+  "Landmine 180's": [
+    "Landmine 180's (barbell)"
+  ],
+  "Landmine Linear Jammer": [
+    "Landmine Linear Jammer (barbell)"
+  ],
+  "Lateral Bound": [
+    "Lateral Bound (body only)"
+  ],
+  "Lateral Box Jump": [
+    "Lateral Box Jump (other)"
+  ],
+  "Lateral Cone Hops": [
+    "Lateral Cone Hops (other)"
+  ],
+  "Lateral Raise - With Bands": [],
+  "Latissimus Dorsi-SMR": [
+    "Latissimus Dorsi-SMR (foam roll)"
+  ],
+  "Leg-Over Floor Press": [
+    "Leg-Over Floor Press (kettlebells)"
+  ],
+  "Leg-Up Hamstring Stretch": [],
+  "Leg Extensions": [
+    "Leg Extensions (machine)"
+  ],
+  "Leg Lift": [
+    "Leg Lift (body only)"
+  ],
+  "Leg Press": [
+    "Leg Press (machine)"
+  ],
+  "Leg Pull-In": [
+    "Leg Pull-In (body only)"
+  ],
+  "Leverage Chest Press": [
+    "Leverage Chest Press (machine)"
+  ],
+  "Leverage Deadlift": [
+    "Leverage Deadlift (machine)"
+  ],
+  "Leverage Decline Chest Press": [
+    "Leverage Decline Chest Press (machine)"
+  ],
+  "Leverage High Row": [
+    "Leverage High Row (machine)"
+  ],
+  "Leverage Incline Chest Press": [
+    "Leverage Incline Chest Press (machine)"
+  ],
+  "Leverage Iso Row": [
+    "Leverage Iso Row (machine)"
+  ],
+  "Leverage Shoulder Press": [
+    "Leverage Shoulder Press (machine)"
+  ],
+  "Leverage Shrug": [
+    "Leverage Shrug (machine)"
+  ],
+  "Linear 3-Part Start Technique": [],
+  "Linear Acceleration Wall Drill": [],
+  "Linear Depth Jump": [
+    "Linear Depth Jump (other)"
+  ],
+  "Log Lift": [
+    "Log Lift (other)"
+  ],
+  "London Bridges": [
+    "London Bridges (other)"
+  ],
+  "Looking At Ceiling": [],
+  "Low Cable Crossover": [],
+  "Low Cable Triceps Extension": [],
+  "Low Pulley Row To Neck": [
+    "Low Pulley Row To Neck (cable)"
+  ],
+  "Lower Back-SMR": [
+    "Lower Back-SMR (foam roll)"
+  ],
+  "Lower Back Curl": [
+    "Lower Back Curl (body only)"
+  ],
+  "Lunge Pass Through": [
+    "Lunge Pass Through (kettlebells)"
+  ],
+  "Lunge Sprint": [
+    "Lunge Sprint (machine)"
+  ],
+  "Lying Bent Leg Groin": [
+    "Lying Bent Leg Groin (other)"
+  ],
+  "Lying Cable Curl": [],
+  "Lying Cambered Barbell Row": [],
+  "Lying Close-Grip Bar Curl On High Pulley": [
+    "Lying Close-Grip Bar Curl On High Pulley (cable)"
+  ],
+  "Lying Close-Grip Barbell Triceps Extension Behind The Head": [],
+  "Lying Close-Grip Barbell Triceps Press To Chin": [
+    "Lying Close-Grip Barbell Triceps Press To Chin (e-z curl bar)"
+  ],
+  "Lying Crossover": [
+    "Lying Crossover (body only)"
+  ],
+  "Lying Dumbbell Tricep Extension": [],
+  "Lying Face Down Plate Neck Resistance": [
+    "Lying Face Down Plate Neck Resistance (other)"
+  ],
+  "Lying Face Up Plate Neck Resistance": [
+    "Lying Face Up Plate Neck Resistance (other)"
+  ],
+  "Lying Glute": [
+    "Lying Glute (body only)"
+  ],
+  "Lying Hamstring": [
+    "Lying Hamstring (other)"
+  ],
+  "Lying High Bench Barbell Curl": [],
+  "Lying Leg Curls": [
+    "Lying Leg Curls (machine)"
+  ],
+  "Lying Machine Squat": [],
+  "Lying One-Arm Lateral Raise": [
+    "Lying One-Arm Lateral Raise (dumbbell)"
+  ],
+  "Lying Prone Quadriceps": [
+    "Lying Prone Quadriceps (body only)"
+  ],
+  "Lying Rear Delt Raise": [
+    "Lying Rear Delt Raise (dumbbell)"
+  ],
+  "Lying Supine Dumbbell Curl": [],
+  "Lying T-Bar Row": [
+    "Lying T-Bar Row (machine)"
+  ],
+  "Lying Triceps Press": [
+    "Lying Triceps Press (e-z curl bar)"
+  ],
+  "Machine Bench Press": [],
+  "Machine Bicep Curl": [],
+  "Machine Preacher Curls": [],
+  "Machine Shoulder (Military) Press": [],
+  "Machine Triceps Extension": [],
+  "Medicine Ball Chest Pass": [],
+  "Medicine Ball Full Twist": [],
+  "Medicine Ball Scoop Throw": [],
+  "Middle Back Shrug": [
+    "Middle Back Shrug (dumbbell)"
+  ],
+  "Middle Back Stretch": [],
+  "Mixed Grip Chin": [
+    "Mixed Grip Chin (other)"
+  ],
+  "Monster Walk": [
+    "Monster Walk (bands)"
+  ],
+  "Mountain Climbers": [],
+  "Moving Claw Series": [],
+  "Muscle Snatch": [
+    "Muscle Snatch (barbell)"
+  ],
+  "Muscle Up": [
+    "Muscle Up (other)"
+  ],
+  "Narrow Stance Hack Squats": [
+    "Narrow Stance Hack Squats (machine)"
+  ],
+  "Narrow Stance Leg Press": [
+    "Narrow Stance Leg Press (machine)"
+  ],
+  "Narrow Stance Squats": [
+    "Narrow Stance Squats (barbell)"
+  ],
+  "Natural Glute Ham Raise": [
+    "Natural Glute Ham Raise (body only)"
+  ],
+  "Neck-SMR": [
+    "Neck-SMR (other)"
+  ],
+  "Neck Press": [
+    "Neck Press (barbell)"
+  ],
+  "Oblique Crunches": [
+    "Oblique Crunches (body only)"
+  ],
+  "Oblique Crunches - On The Floor": [
+    "Oblique Crunches - On The Floor (body only)"
+  ],
+  "Olympic Squat": [
+    "Olympic Squat (barbell)"
+  ],
+  "On-Your-Back Quad Stretch": [
+    "On-Your-Back Quad Stretch (other)"
+  ],
+  "On Your Side Quad Stretch": [],
+  "One-Arm Dumbbell Row": [],
+  "One-Arm Flat Bench Dumbbell Flye": [],
+  "One-Arm High-Pulley Cable Side Bends": [],
+  "One-Arm Incline Lateral Raise": [
+    "One-Arm Incline Lateral Raise (dumbbell)"
+  ],
+  "One-Arm Kettlebell Clean": [
+    "One-Arm Kettlebell Clean (kettlebells)"
+  ],
+  "One-Arm Kettlebell Clean and Jerk": [
+    "One-Arm Kettlebell Clean and Jerk (kettlebells)"
+  ],
+  "One-Arm Kettlebell Floor Press": [
+    "One-Arm Kettlebell Floor Press (kettlebells)"
+  ],
+  "One-Arm Kettlebell Jerk": [
+    "One-Arm Kettlebell Jerk (kettlebells)"
+  ],
+  "One-Arm Kettlebell Military Press To The Side": [
+    "One-Arm Kettlebell Military Press To The Side (kettlebells)"
+  ],
+  "One-Arm Kettlebell Para Press": [
+    "One-Arm Kettlebell Para Press (kettlebells)"
+  ],
+  "One-Arm Kettlebell Push Press": [
+    "One-Arm Kettlebell Push Press (kettlebells)"
+  ],
+  "One-Arm Kettlebell Row": [
+    "One-Arm Kettlebell Row (kettlebells)"
+  ],
+  "One-Arm Kettlebell Snatch": [
+    "One-Arm Kettlebell Snatch (kettlebells)"
+  ],
+  "One-Arm Kettlebell Split Jerk": [
+    "One-Arm Kettlebell Split Jerk (kettlebells)"
+  ],
+  "One-Arm Kettlebell Split Snatch": [
+    "One-Arm Kettlebell Split Snatch (kettlebells)"
+  ],
+  "One-Arm Kettlebell Swings": [
+    "One-Arm Kettlebell Swings (kettlebells)"
+  ],
+  "One-Arm Long Bar Row": [
+    "One-Arm Long Bar Row (barbell)"
+  ],
+  "One-Arm Medicine Ball Slam": [],
+  "One-Arm Open Palm Kettlebell Clean": [
+    "One-Arm Open Palm Kettlebell Clean (kettlebells)"
+  ],
+  "One-Arm Overhead Kettlebell Squats": [
+    "One-Arm Overhead Kettlebell Squats (kettlebells)"
+  ],
+  "One-Arm Side Deadlift": [
+    "One-Arm Side Deadlift (barbell)"
+  ],
+  "One-Arm Side Laterals": [
+    "One-Arm Side Laterals (dumbbell)"
+  ],
+  "One-Legged Cable Kickback": [],
+  "One Arm Against Wall": [],
+  "One Arm Chin-Up": [
+    "One Arm Chin-Up (other)"
+  ],
+  "One Arm Dumbbell Bench Press": [],
+  "One Arm Dumbbell Preacher Curl": [],
+  "One Arm Floor Press": [
+    "One Arm Floor Press (barbell)"
+  ],
+  "One Arm Lat Pulldown": [
+    "One Arm Lat Pulldown (cable)"
+  ],
+  "One Arm Pronated Dumbbell Triceps Extension": [],
+  "One Arm Supinated Dumbbell Triceps Extension": [],
+  "One Half Locust": [],
+  "One Handed Hang": [
+    "One Handed Hang (other)"
+  ],
+  "One Knee To Chest": [],
+  "One Leg Barbell Squat": [],
+  "Open Palm Kettlebell Clean": [
+    "Open Palm Kettlebell Clean (kettlebells)"
+  ],
+  "Otis-Up": [
+    "Otis-Up (other)"
+  ],
+  "Overhead Cable Curl": [],
+  "Overhead Lat": [
+    "Overhead Lat (other)"
+  ],
+  "Overhead Slam": [
+    "Overhead Slam (medicine ball)"
+  ],
+  "Overhead Squat": [
+    "Overhead Squat (barbell)"
+  ],
+  "Overhead Stretch": [],
+  "Overhead Triceps": [
+    "Overhead Triceps (body only)"
+  ],
+  "Pallof Press": [
+    "Pallof Press (cable)"
+  ],
+  "Pallof Press With Rotation": [
+    "Pallof Press With Rotation (cable)"
+  ],
+  "Palms-Down Dumbbell Wrist Curl Over A Bench": [],
+  "Palms-Down Wrist Curl Over A Bench": [
+    "Palms-Down Wrist Curl Over A Bench (barbell)"
+  ],
+  "Palms-Up Barbell Wrist Curl Over A Bench": [],
+  "Palms-Up Dumbbell Wrist Curl Over A Bench": [],
+  "Parallel Bar Dip": [
+    "Parallel Bar Dip (other)"
+  ],
+  "Pelvic Tilt Into Bridge": [],
+  "Peroneals-SMR": [
+    "Peroneals-SMR (foam roll)"
+  ],
+  "Peroneals Stretch": [
+    "Peroneals Stretch (other)"
+  ],
+  "Physioball Hip Bridge": [
+    "Physioball Hip Bridge (exercise ball)"
+  ],
+  "Pin Presses": [
+    "Pin Presses (barbell)"
+  ],
+  "Piriformis-SMR": [
+    "Piriformis-SMR (foam roll)"
+  ],
+  "Plank": [
+    "Plank (body only)"
+  ],
+  "Plate Pinch": [
+    "Plate Pinch (other)"
+  ],
+  "Plate Twist": [
+    "Plate Twist (other)"
+  ],
+  "Platform Hamstring Slides": [
+    "Platform Hamstring Slides (other)"
+  ],
+  "Plie Dumbbell Squat": [],
+  "Plyo Kettlebell Pushups": [
+    "Plyo Kettlebell Pushups (kettlebells)"
+  ],
+  "Plyo Push-up": [
+    "Plyo Push-up (body only)"
+  ],
+  "Posterior Tibialis Stretch": [
+    "Posterior Tibialis Stretch (other)"
+  ],
+  "Power Clean": [
+    "Power Clean (barbell)"
+  ],
+  "Power Clean from Blocks": [
+    "Power Clean from Blocks (barbell)"
+  ],
+  "Power Jerk": [
+    "Power Jerk (barbell)"
+  ],
+  "Power Partials": [
+    "Power Partials (dumbbell)"
+  ],
+  "Power Snatch": [
+    "Power Snatch (barbell)"
+  ],
+  "Power Snatch from Blocks": [
+    "Power Snatch from Blocks (barbell)"
+  ],
+  "Power Stairs": [
+    "Power Stairs (other)"
+  ],
+  "Preacher Curl": [
+    "Preacher Curl (barbell)"
+  ],
+  "Preacher Hammer Dumbbell Curl": [],
+  "Press Sit-Up": [
+    "Press Sit-Up (barbell)"
+  ],
+  "Prone Manual Hamstring": [],
+  "Prowler Sprint": [
+    "Prowler Sprint (other)"
+  ],
+  "Pull Through": [
+    "Pull Through (cable)"
+  ],
+  "Pullups": [
+    "Pullups (body only)"
+  ],
+  "Push-Up Wide": [
+    "Push-Up Wide (body only)"
+  ],
+  "Push-Ups - Close Triceps Position": [
+    "Push-Ups - Close Triceps Position (body only)"
+  ],
+  "Push-Ups With Feet Elevated": [
+    "Push-Ups With Feet Elevated (body only)"
+  ],
+  "Push-Ups With Feet On An Exercise Ball": [],
+  "Push Press": [
+    "Push Press (barbell)"
+  ],
+  "Push Press - Behind the Neck": [
+    "Push Press - Behind the Neck (barbell)"
+  ],
+  "Push Up to Side Plank": [
+    "Push Up to Side Plank (body only)"
+  ],
+  "Pushups": [
+    "Pushups (body only)"
+  ],
+  "Pushups (Close and Wide Hand Positions)": [
+    "Pushups (Close and Wide Hand Positions) (body only)"
+  ],
+  "Pyramid": [
+    "Pyramid (exercise ball)"
+  ],
+  "Quad Stretch": [
+    "Quad Stretch (other)"
+  ],
+  "Quadriceps-SMR": [
+    "Quadriceps-SMR (foam roll)"
+  ],
+  "Quick Leap": [
+    "Quick Leap (other)"
+  ],
+  "Rack Delivery": [
+    "Rack Delivery (barbell)"
+  ],
+  "Rack Pull with Bands": [
+    "Rack Pull with Bands (barbell)"
+  ],
+  "Rack Pulls": [
+    "Rack Pulls (barbell)"
+  ],
+  "Rear Leg Raises": [
+    "Rear Leg Raises (body only)"
+  ],
+  "Recumbent Bike": [
+    "Recumbent Bike (machine)"
+  ],
+  "Return Push from Stance": [
+    "Return Push from Stance (medicine ball)"
+  ],
+  "Reverse Band Bench Press": [
+    "Reverse Band Bench Press (barbell)"
+  ],
+  "Reverse Band Box Squat": [
+    "Reverse Band Box Squat (barbell)"
+  ],
+  "Reverse Band Deadlift": [
+    "Reverse Band Deadlift (barbell)"
+  ],
+  "Reverse Band Power Squat": [
+    "Reverse Band Power Squat (barbell)"
+  ],
+  "Reverse Band Sumo Deadlift": [
+    "Reverse Band Sumo Deadlift (barbell)"
+  ],
+  "Reverse Barbell Curl": [],
+  "Reverse Barbell Preacher Curls": [
+    "Reverse Barbell Preacher Curls (e-z curl bar)"
+  ],
+  "Reverse Cable Curl": [],
+  "Reverse Crunch": [
+    "Reverse Crunch (body only)"
+  ],
+  "Reverse Flyes": [
+    "Reverse Flyes (dumbbell)"
+  ],
+  "Reverse Flyes With External Rotation": [
+    "Reverse Flyes With External Rotation (dumbbell)"
+  ],
+  "Reverse Grip Bent-Over Rows": [
+    "Reverse Grip Bent-Over Rows (barbell)"
+  ],
+  "Reverse Grip Triceps Pushdown": [
+    "Reverse Grip Triceps Pushdown (cable)"
+  ],
+  "Reverse Hyperextension": [
+    "Reverse Hyperextension (machine)"
+  ],
+  "Reverse Machine Flyes": [],
+  "Reverse Plate Curls": [
+    "Reverse Plate Curls (other)"
+  ],
+  "Reverse Triceps Bench Press": [
+    "Reverse Triceps Bench Press (barbell)"
+  ],
+  "Rhomboids-SMR": [
+    "Rhomboids-SMR (foam roll)"
+  ],
+  "Rickshaw Carry": [
+    "Rickshaw Carry (other)"
+  ],
+  "Rickshaw Deadlift": [
+    "Rickshaw Deadlift (other)"
+  ],
+  "Ring Dips": [
+    "Ring Dips (other)"
+  ],
+  "Rocket Jump": [
+    "Rocket Jump (body only)"
+  ],
+  "Rocking Standing Calf Raise": [
+    "Rocking Standing Calf Raise (barbell)"
+  ],
+  "Rocky Pull-Ups/Pulldowns": [
+    "Rocky Pull-Ups/Pulldowns (other)"
+  ],
+  "Romanian Deadlift": [
+    "Romanian Deadlift (barbell)"
+  ],
+  "Romanian Deadlift from Deficit": [
+    "Romanian Deadlift from Deficit (barbell)"
+  ],
+  "Rope Climb": [
+    "Rope Climb (other)"
+  ],
+  "Rope Crunch": [
+    "Rope Crunch (cable)"
+  ],
+  "Rope Jumping": [
+    "Rope Jumping (other)"
+  ],
+  "Rope Straight-Arm Pulldown": [
+    "Rope Straight-Arm Pulldown (cable)"
+  ],
+  "Round The World Shoulder Stretch": [
+    "Round The World Shoulder Stretch (other)"
+  ],
+  "Rowing, Stationary": [
+    "Rowing, Stationary (machine)"
+  ],
+  "Runner's Stretch": [],
+  "Running, Treadmill": [
+    "Running, Treadmill (machine)"
+  ],
+  "Russian Twist": [
+    "Russian Twist (body only)"
+  ],
+  "Sandbag Load": [
+    "Sandbag Load (other)"
+  ],
+  "Scapular Pull-Up": [],
+  "Scissor Kick": [
+    "Scissor Kick (body only)"
+  ],
+  "Scissors Jump": [
+    "Scissors Jump (body only)"
+  ],
+  "Seated Band Hamstring Curl": [
+    "Seated Band Hamstring Curl (other)"
+  ],
+  "Seated Barbell Military Press": [],
+  "Seated Barbell Twist": [],
+  "Seated Bent-Over One-Arm Dumbbell Triceps Extension": [],
+  "Seated Bent-Over Rear Delt Raise": [
+    "Seated Bent-Over Rear Delt Raise (dumbbell)"
+  ],
+  "Seated Bent-Over Two-Arm Dumbbell Triceps Extension": [],
+  "Seated Biceps": [
+    "Seated Biceps (body only)"
+  ],
+  "Seated Cable Rows": [],
+  "Seated Cable Shoulder Press": [],
+  "Seated Calf Raise": [
+    "Seated Calf Raise (machine)"
+  ],
+  "Seated Calf Stretch": [],
+  "Seated Close-Grip Concentration Barbell Curl": [],
+  "Seated Dumbbell Curl": [],
+  "Seated Dumbbell Inner Biceps Curl": [],
+  "Seated Dumbbell Palms-Down Wrist Curl": [],
+  "Seated Dumbbell Palms-Up Wrist Curl": [],
+  "Seated Dumbbell Press": [],
+  "Seated Flat Bench Leg Pull-In": [
+    "Seated Flat Bench Leg Pull-In (body only)"
+  ],
+  "Seated Floor Hamstring Stretch": [],
+  "Seated Front Deltoid": [
+    "Seated Front Deltoid (body only)"
+  ],
+  "Seated Glute": [
+    "Seated Glute (body only)"
+  ],
+  "Seated Good Mornings": [
+    "Seated Good Mornings (barbell)"
+  ],
+  "Seated Hamstring": [],
+  "Seated Hamstring and Calf Stretch": [
+    "Seated Hamstring and Calf Stretch (other)"
+  ],
+  "Seated Head Harness Neck Resistance": [
+    "Seated Head Harness Neck Resistance (other)"
+  ],
+  "Seated Leg Curl": [
+    "Seated Leg Curl (machine)"
+  ],
+  "Seated Leg Tucks": [
+    "Seated Leg Tucks (body only)"
+  ],
+  "Seated One-Arm Dumbbell Palms-Down Wrist Curl": [],
+  "Seated One-Arm Dumbbell Palms-Up Wrist Curl": [],
+  "Seated One-arm Cable Pulley Rows": [],
+  "Seated Overhead Stretch": [],
+  "Seated Palm-Up Barbell Wrist Curl": [],
+  "Seated Palms-Down Barbell Wrist Curl": [],
+  "Seated Side Lateral Raise": [
+    "Seated Side Lateral Raise (dumbbell)"
+  ],
+  "Seated Triceps Press": [
+    "Seated Triceps Press (dumbbell)"
+  ],
+  "Seated Two-Arm Palms-Up Low-Pulley Wrist Curl": [
+    "Seated Two-Arm Palms-Up Low-Pulley Wrist Curl (cable)"
+  ],
+  "See-Saw Press (Alternating Side Press)": [
+    "See-Saw Press (Alternating Side Press) (dumbbell)"
+  ],
+  "Shotgun Row": [
+    "Shotgun Row (cable)"
+  ],
+  "Shoulder Circles": [],
+  "Shoulder Press - With Bands": [],
+  "Shoulder Raise": [],
+  "Shoulder Stretch": [],
+  "Side-Lying Floor Stretch": [],
+  "Side Bridge": [
+    "Side Bridge (body only)"
+  ],
+  "Side Hop-Sprint": [
+    "Side Hop-Sprint (other)"
+  ],
+  "Side Jackknife": [
+    "Side Jackknife (body only)"
+  ],
+  "Side Lateral Raise": [
+    "Side Lateral Raise (dumbbell)"
+  ],
+  "Side Laterals to Front Raise": [
+    "Side Laterals to Front Raise (dumbbell)"
+  ],
+  "Side Leg Raises": [
+    "Side Leg Raises (body only)"
+  ],
+  "Side Lying Groin Stretch": [],
+  "Side Neck Stretch": [],
+  "Side Standing Long Jump": [],
+  "Side To Side Chins": [
+    "Side To Side Chins (other)"
+  ],
+  "Side Wrist Pull": [],
+  "Side to Side Box Shuffle": [
+    "Side to Side Box Shuffle (other)"
+  ],
+  "Single-Arm Cable Crossover": [],
+  "Single-Arm Linear Jammer": [
+    "Single-Arm Linear Jammer (barbell)"
+  ],
+  "Single-Arm Push-Up": [
+    "Single-Arm Push-Up (body only)"
+  ],
+  "Single-Cone Sprint Drill": [
+    "Single-Cone Sprint Drill (other)"
+  ],
+  "Single-Leg High Box Squat": [
+    "Single-Leg High Box Squat (other)"
+  ],
+  "Single-Leg Hop Progression": [
+    "Single-Leg Hop Progression (other)"
+  ],
+  "Single-Leg Lateral Hop": [
+    "Single-Leg Lateral Hop (other)"
+  ],
+  "Single-Leg Leg Extension": [
+    "Single-Leg Leg Extension (machine)"
+  ],
+  "Single-Leg Stride Jump": [
+    "Single-Leg Stride Jump (other)"
+  ],
+  "Single Dumbbell Raise": [],
+  "Single Leg Butt Kick": [
+    "Single Leg Butt Kick (body only)"
+  ],
+  "Single Leg Glute Bridge": [
+    "Single Leg Glute Bridge (body only)"
+  ],
+  "Single Leg Push-off": [
+    "Single Leg Push-off (other)"
+  ],
+  "Sit-Up": [
+    "Sit-Up (body only)"
+  ],
+  "Sit Squats": [],
+  "Skating": [
+    "Skating (other)"
+  ],
+  "Sled Drag - Harness": [
+    "Sled Drag - Harness (other)"
+  ],
+  "Sled Overhead Backward Walk": [
+    "Sled Overhead Backward Walk (other)"
+  ],
+  "Sled Overhead Triceps Extension": [
+    "Sled Overhead Triceps Extension (other)"
+  ],
+  "Sled Push": [
+    "Sled Push (other)"
+  ],
+  "Sled Reverse Flye": [
+    "Sled Reverse Flye (other)"
+  ],
+  "Sled Row": [
+    "Sled Row (other)"
+  ],
+  "Sledgehammer Swings": [
+    "Sledgehammer Swings (other)"
+  ],
+  "Smith Incline Shoulder Raise": [
+    "Smith Incline Shoulder Raise (barbell)"
+  ],
+  "Smith Machine Behind the Back Shrug": [],
+  "Smith Machine Bench Press": [],
+  "Smith Machine Bent Over Row": [],
+  "Smith Machine Calf Raise": [],
+  "Smith Machine Close-Grip Bench Press": [],
+  "Smith Machine Decline Press": [],
+  "Smith Machine Hang Power Clean": [],
+  "Smith Machine Hip Raise": [],
+  "Smith Machine Incline Bench Press": [],
+  "Smith Machine Leg Press": [],
+  "Smith Machine One-Arm Upright Row": [],
+  "Smith Machine Overhead Shoulder Press": [],
+  "Smith Machine Pistol Squat": [],
+  "Smith Machine Reverse Calf Raises": [],
+  "Smith Machine Squat": [],
+  "Smith Machine Stiff-Legged Deadlift": [],
+  "Smith Machine Upright Row": [],
+  "Smith Single-Leg Split Squat": [
+    "Smith Single-Leg Split Squat (machine)"
+  ],
+  "Snatch": [
+    "Snatch (barbell)"
+  ],
+  "Snatch Balance": [
+    "Snatch Balance (barbell)"
+  ],
+  "Snatch Deadlift": [
+    "Snatch Deadlift (barbell)"
+  ],
+  "Snatch Pull": [
+    "Snatch Pull (barbell)"
+  ],
+  "Snatch Shrug": [
+    "Snatch Shrug (barbell)"
+  ],
+  "Snatch from Blocks": [
+    "Snatch from Blocks (barbell)"
+  ],
+  "Speed Band Overhead Triceps": [
+    "Speed Band Overhead Triceps (bands)"
+  ],
+  "Speed Box Squat": [
+    "Speed Box Squat (barbell)"
+  ],
+  "Speed Squats": [
+    "Speed Squats (barbell)"
+  ],
+  "Spell Caster": [
+    "Spell Caster (dumbbell)"
+  ],
+  "Spider Crawl": [
+    "Spider Crawl (body only)"
+  ],
+  "Spider Curl": [
+    "Spider Curl (e-z curl bar)"
+  ],
+  "Spinal Stretch": [],
+  "Split Clean": [
+    "Split Clean (barbell)"
+  ],
+  "Split Jerk": [
+    "Split Jerk (barbell)"
+  ],
+  "Split Jump": [
+    "Split Jump (body only)"
+  ],
+  "Split Snatch": [
+    "Split Snatch (barbell)"
+  ],
+  "Split Squat with Dumbbells": [],
+  "Split Squats": [],
+  "Squat Jerk": [
+    "Squat Jerk (barbell)"
+  ],
+  "Squat with Bands": [
+    "Squat with Bands (barbell)"
+  ],
+  "Squat with Chains": [
+    "Squat with Chains (barbell)"
+  ],
+  "Squat with Plate Movers": [
+    "Squat with Plate Movers (barbell)"
+  ],
+  "Squats - With Bands": [],
+  "Stairmaster": [
+    "Stairmaster (machine)"
+  ],
+  "Standing Alternating Dumbbell Press": [],
+  "Standing Barbell Calf Raise": [],
+  "Standing Barbell Press Behind Neck": [],
+  "Standing Bent-Over One-Arm Dumbbell Triceps Extension": [],
+  "Standing Bent-Over Two-Arm Dumbbell Triceps Extension": [],
+  "Standing Biceps Cable Curl": [],
+  "Standing Biceps Stretch": [
+    "Standing Biceps Stretch (other)"
+  ],
+  "Standing Bradford Press": [
+    "Standing Bradford Press (barbell)"
+  ],
+  "Standing Cable Chest Press": [],
+  "Standing Cable Lift": [],
+  "Standing Cable Wood Chop": [],
+  "Standing Calf Raises": [
+    "Standing Calf Raises (machine)"
+  ],
+  "Standing Concentration Curl": [
+    "Standing Concentration Curl (dumbbell)"
+  ],
+  "Standing Dumbbell Calf Raise": [],
+  "Standing Dumbbell Press": [],
+  "Standing Dumbbell Reverse Curl": [],
+  "Standing Dumbbell Straight-Arm Front Delt Raise Above Head": [],
+  "Standing Dumbbell Triceps Extension": [],
+  "Standing Dumbbell Upright Row": [],
+  "Standing Elevated Quad Stretch": [
+    "Standing Elevated Quad Stretch (other)"
+  ],
+  "Standing Front Barbell Raise Over Head": [],
+  "Standing Gastrocnemius Calf Stretch": [],
+  "Standing Hamstring and Calf Stretch": [
+    "Standing Hamstring and Calf Stretch (other)"
+  ],
+  "Standing Hip Circles": [
+    "Standing Hip Circles (body only)"
+  ],
+  "Standing Hip Flexors": [],
+  "Standing Inner-Biceps Curl": [
+    "Standing Inner-Biceps Curl (dumbbell)"
+  ],
+  "Standing Lateral Stretch": [],
+  "Standing Leg Curl": [
+    "Standing Leg Curl (machine)"
+  ],
+  "Standing Long Jump": [
+    "Standing Long Jump (body only)"
+  ],
+  "Standing Low-Pulley Deltoid Raise": [
+    "Standing Low-Pulley Deltoid Raise (cable)"
+  ],
+  "Standing Low-Pulley One-Arm Triceps Extension": [
+    "Standing Low-Pulley One-Arm Triceps Extension (cable)"
+  ],
+  "Standing Military Press": [
+    "Standing Military Press (barbell)"
+  ],
+  "Standing Olympic Plate Hand Squeeze": [
+    "Standing Olympic Plate Hand Squeeze (other)"
+  ],
+  "Standing One-Arm Cable Curl": [],
+  "Standing One-Arm Dumbbell Curl Over Incline Bench": [],
+  "Standing One-Arm Dumbbell Triceps Extension": [],
+  "Standing Overhead Barbell Triceps Extension": [],
+  "Standing Palm-In One-Arm Dumbbell Press": [],
+  "Standing Palms-In Dumbbell Press": [],
+  "Standing Palms-Up Barbell Behind The Back Wrist Curl": [],
+  "Standing Pelvic Tilt": [],
+  "Standing Rope Crunch": [
+    "Standing Rope Crunch (cable)"
+  ],
+  "Standing Soleus And Achilles Stretch": [],
+  "Standing Toe Touches": [],
+  "Standing Towel Triceps Extension": [
+    "Standing Towel Triceps Extension (body only)"
+  ],
+  "Standing Two-Arm Overhead Throw": [
+    "Standing Two-Arm Overhead Throw (medicine ball)"
+  ],
+  "Star Jump": [
+    "Star Jump (body only)"
+  ],
+  "Step-up with Knee Raise": [
+    "Step-up with Knee Raise (body only)"
+  ],
+  "Step Mill": [
+    "Step Mill (machine)"
+  ],
+  "Stiff-Legged Barbell Deadlift": [],
+  "Stiff-Legged Dumbbell Deadlift": [],
+  "Stiff Leg Barbell Good Morning": [],
+  "Stomach Vacuum": [
+    "Stomach Vacuum (body only)"
+  ],
+  "Straight-Arm Dumbbell Pullover": [],
+  "Straight-Arm Pulldown": [
+    "Straight-Arm Pulldown (cable)"
+  ],
+  "Straight Bar Bench Mid Rows": [
+    "Straight Bar Bench Mid Rows (barbell)"
+  ],
+  "Straight Raises on Incline Bench": [
+    "Straight Raises on Incline Bench (barbell)"
+  ],
+  "Stride Jump Crossover": [
+    "Stride Jump Crossover (other)"
+  ],
+  "Sumo Deadlift": [
+    "Sumo Deadlift (barbell)"
+  ],
+  "Sumo Deadlift with Bands": [
+    "Sumo Deadlift with Bands (barbell)"
+  ],
+  "Sumo Deadlift with Chains": [
+    "Sumo Deadlift with Chains (barbell)"
+  ],
+  "Superman": [
+    "Superman (body only)"
+  ],
+  "Supine Chest Throw": [
+    "Supine Chest Throw (medicine ball)"
+  ],
+  "Supine One-Arm Overhead Throw": [
+    "Supine One-Arm Overhead Throw (medicine ball)"
+  ],
+  "Supine Two-Arm Overhead Throw": [
+    "Supine Two-Arm Overhead Throw (medicine ball)"
+  ],
+  "Suspended Fallout": [
+    "Suspended Fallout (other)"
+  ],
+  "Suspended Push-Up": [
+    "Suspended Push-Up (other)"
+  ],
+  "Suspended Reverse Crunch": [
+    "Suspended Reverse Crunch (other)"
+  ],
+  "Suspended Row": [
+    "Suspended Row (other)"
+  ],
+  "Suspended Split Squat": [
+    "Suspended Split Squat (other)"
+  ],
+  "Svend Press": [
+    "Svend Press (other)"
+  ],
+  "T-Bar Row with Handle": [
+    "T-Bar Row with Handle (barbell)"
+  ],
+  "Tate Press": [
+    "Tate Press (dumbbell)"
+  ],
+  "The Straddle": [],
+  "Thigh Abductor": [
+    "Thigh Abductor (machine)"
+  ],
+  "Thigh Adductor": [
+    "Thigh Adductor (machine)"
+  ],
+  "Tire Flip": [
+    "Tire Flip (other)"
+  ],
+  "Toe Touchers": [
+    "Toe Touchers (body only)"
+  ],
+  "Torso Rotation": [
+    "Torso Rotation (exercise ball)"
+  ],
+  "Trail Running/Walking": [],
+  "Trap Bar Deadlift": [
+    "Trap Bar Deadlift (other)"
+  ],
+  "Tricep Dumbbell Kickback": [],
+  "Tricep Side Stretch": [],
+  "Triceps Overhead Extension with Rope": [
+    "Triceps Overhead Extension with Rope (cable)"
+  ],
+  "Triceps Pushdown": [
+    "Triceps Pushdown (cable)"
+  ],
+  "Triceps Pushdown - Rope Attachment": [
+    "Triceps Pushdown - Rope Attachment (cable)"
+  ],
+  "Triceps Pushdown - V-Bar Attachment": [
+    "Triceps Pushdown - V-Bar Attachment (cable)"
+  ],
+  "Triceps Stretch": [],
+  "Tuck Crunch": [
+    "Tuck Crunch (body only)"
+  ],
+  "Two-Arm Dumbbell Preacher Curl": [],
+  "Two-Arm Kettlebell Clean": [
+    "Two-Arm Kettlebell Clean (kettlebells)"
+  ],
+  "Two-Arm Kettlebell Jerk": [
+    "Two-Arm Kettlebell Jerk (kettlebells)"
+  ],
+  "Two-Arm Kettlebell Military Press": [
+    "Two-Arm Kettlebell Military Press (kettlebells)"
+  ],
+  "Two-Arm Kettlebell Row": [
+    "Two-Arm Kettlebell Row (kettlebells)"
+  ],
+  "Underhand Cable Pulldowns": [],
+  "Upper Back-Leg Grab": [],
+  "Upper Back Stretch": [],
+  "Upright Barbell Row": [],
+  "Upright Cable Row": [],
+  "Upright Row - With Bands": [],
+  "Upward Stretch": [],
+  "V-Bar Pulldown": [
+    "V-Bar Pulldown (cable)"
+  ],
+  "V-Bar Pullup": [
+    "V-Bar Pullup (body only)"
+  ],
+  "Vertical Swing": [
+    "Vertical Swing (dumbbell)"
+  ],
+  "Walking, Treadmill": [
+    "Walking, Treadmill (machine)"
+  ],
+  "Weighted Ball Hyperextension": [
+    "Weighted Ball Hyperextension (exercise ball)"
+  ],
+  "Weighted Ball Side Bend": [
+    "Weighted Ball Side Bend (exercise ball)"
+  ],
+  "Weighted Bench Dip": [
+    "Weighted Bench Dip (other)"
+  ],
+  "Weighted Crunches": [
+    "Weighted Crunches (medicine ball)"
+  ],
+  "Weighted Jump Squat": [
+    "Weighted Jump Squat (barbell)"
+  ],
+  "Weighted Pull Ups": [
+    "Weighted Pull Ups (other)"
+  ],
+  "Weighted Sissy Squat": [
+    "Weighted Sissy Squat (barbell)"
+  ],
+  "Weighted Sit-Ups - With Bands": [
+    "Weighted Sit-Ups - With Bands (other)"
+  ],
+  "Weighted Squat": [
+    "Weighted Squat (other)"
+  ],
+  "Wide-Grip Barbell Bench Press": [],
+  "Wide-Grip Decline Barbell Bench Press": [],
+  "Wide-Grip Decline Barbell Pullover": [],
+  "Wide-Grip Lat Pulldown": [
+    "Wide-Grip Lat Pulldown (cable)"
+  ],
+  "Wide-Grip Pulldown Behind The Neck": [
+    "Wide-Grip Pulldown Behind The Neck (cable)"
+  ],
+  "Wide-Grip Rear Pull-Up": [
+    "Wide-Grip Rear Pull-Up (body only)"
+  ],
+  "Wide-Grip Standing Barbell Curl": [],
+  "Wide Stance Barbell Squat": [],
+  "Wide Stance Stiff Legs": [
+    "Wide Stance Stiff Legs (barbell)"
+  ],
+  "Wind Sprints": [
+    "Wind Sprints (body only)"
+  ],
+  "Windmills": [],
+  "World's Greatest Stretch": [],
+  "Wrist Circles": [
+    "Wrist Circles (body only)"
+  ],
+  "Wrist Roller": [
+    "Wrist Roller (other)"
+  ],
+  "Wrist Rotations with Straight Bar": [
+    "Wrist Rotations with Straight Bar (barbell)"
+  ],
+  "Yoke Walk": [
+    "Yoke Walk (other)"
+  ],
+  "Zercher Squats": [
+    "Zercher Squats (barbell)"
+  ],
+  "Zottman Curl": [
+    "Zottman Curl (dumbbell)"
+  ],
+  "Zottman Preacher Curl": [
+    "Zottman Preacher Curl (dumbbell)"
+  ]
+}

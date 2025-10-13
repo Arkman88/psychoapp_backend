@@ -22,8 +22,9 @@ from authentication.views import get_app_config
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/auth/', include('authentication.urls')),
-     path('api/config/', get_app_config, name='app-config')
+    path('api/auth/', include('authentication.urls')),  # Аутентификация
+    path('api/', include('authentication.urls')),       # Exercises endpoints без /auth/
+    path('api/config/', get_app_config, name='app-config')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Добавляем маршруты для медиа файлов в режиме разработки

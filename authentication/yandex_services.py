@@ -89,7 +89,7 @@ class YandexSpeechKit:
         Returns:
             str: распознанный текст
         """
-        if not settings.YANDEX_API_KEY or not settings.YANDEX_FOLDER_ID:
+        if not settings.YANDEX_GPT_API_KEY or not settings.YANDEX_GPT_FOLDER_ID:
             raise Exception('Yandex API ключи не настроены')
         
         logger.info(f"Starting speech recognition, input size: {len(audio_data)} bytes")
@@ -104,12 +104,12 @@ class YandexSpeechKit:
             opus_data = audio_data
         
         headers = {
-            'Authorization': f'Api-Key {settings.YANDEX_API_KEY}',
+            'Authorization': f'Api-Key {settings.YANDEX_GPT_API_KEY}',
             'Content-Type': 'audio/ogg; codecs=opus',
         }
         
         params = {
-            'folderId': settings.YANDEX_FOLDER_ID,
+            'folderId': settings.YANDEX_GPT_FOLDER_ID,
             'lang': lang,
         }
         
@@ -152,14 +152,14 @@ class YandexVision:
         Returns:
             dict: результаты анализа
         """
-        if not settings.YANDEX_API_KEY or not settings.YANDEX_FOLDER_ID:
+        if not settings.YANDEX_GPT_API_KEY or not settings.YANDEX_GPT_FOLDER_ID:
             raise Exception('Yandex API ключи не настроены')
         
         if features is None:
             features = [{'type': 'TEXT_DETECTION'}]
         
         headers = {
-            'Authorization': f'Api-Key {settings.YANDEX_API_KEY}',
+            'Authorization': f'Api-Key {settings.YANDEX_GPT_API_KEY}',
             'Content-Type': 'application/json',
         }
         
@@ -167,7 +167,7 @@ class YandexVision:
         image_base64 = base64.b64encode(image_data).decode('utf-8')
         
         body = {
-            'folderId': settings.YANDEX_FOLDER_ID,
+            'folderId': settings.YANDEX_GPT_FOLDER_ID,
             'analyze_specs': [{
                 'content': image_base64,
                 'features': features

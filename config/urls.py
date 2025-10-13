@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('authentication.urls')),
      path('api/config/', get_app_config, name='app-config')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Добавляем маршруты для медиа файлов в режиме разработки
 if settings.DEBUG:

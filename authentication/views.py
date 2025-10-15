@@ -357,8 +357,25 @@ def get_app_config(request):
 @permission_classes([IsAuthenticated])
 def speech_to_text_view(request):
     """
-    Распознавание речи через Yandex SpeechKit
+    Распознавание речи через Yandex SpeechKit с парсингом упражнений
+    
     Ожидает audio файл в request.FILES
+    
+    Возвращает:
+    {
+        "text": "жим лежа 5 подходов по 40кг на 10 раз",
+        "parsed": {
+            "exercise_name": "жим лежа",
+            "sets": [
+                {"set_number": 1, "reps": 10, "weight_kg": 40},
+                {"set_number": 2, "reps": 10, "weight_kg": 40},
+                ...
+            ],
+            "is_structured": true,
+            "sets_summary": "5 подходов по 10 раз с весом 40кг"
+        },
+        "success": true
+    }
     """
     try:
         audio_file = request.FILES.get('audio')
@@ -374,8 +391,17 @@ def speech_to_text_view(request):
         # Распознаём речь
         text = YandexSpeechKit.recognize_audio(audio_data)
         
+        # Парсим структурированные данные
+        from .exercise_parser import ExerciseParser
+        parsed_data = ExerciseParser.parse(text)
+        
+        # Добавляем краткое описание подходов
+        if parsed_data.get('sets'):
+            parsed_data['sets_summary'] = ExerciseParser.format_sets_summary(parsed_data['sets'])
+        
         return Response({
             'text': text,
+            'parsed': parsed_data,
             'success': True
         })
         

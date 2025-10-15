@@ -10,6 +10,7 @@ import base64
 import subprocess
 import tempfile
 import os
+import shutil
 import logging
 from django.conf import settings
 
@@ -34,19 +35,25 @@ class YandexSpeechKit:
         """
         logger.info(f"Starting audio conversion, input size: {len(audio_data)} bytes")
         
+        # Определяем путь к FFmpeg
+        ffmpeg_path = shutil.which('ffmpeg') or '/usr/bin/ffmpeg'
+        
         # Проверяем наличие FFmpeg
+        if not os.path.exists(ffmpeg_path):
+            raise Exception(f"FFmpeg не найден по пути {ffmpeg_path}. Установите: apt install ffmpeg (Ubuntu) или brew install ffmpeg (macOS)")
+        
         try:
             ffmpeg_check = subprocess.run(
-                ['ffmpeg', '-version'],
+                [ffmpeg_path, '-version'],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 timeout=5
             )
             if ffmpeg_check.returncode != 0:
                 raise Exception("FFmpeg не установлен или не работает")
-            logger.info(f"FFmpeg найден: {ffmpeg_check.stdout.decode('utf-8').splitlines()[0]}")
+            logger.info(f"FFmpeg найден: {ffmpeg_path} - {ffmpeg_check.stdout.decode('utf-8').splitlines()[0]}")
         except FileNotFoundError:
-            raise Exception("FFmpeg не найден. Установите: apt install ffmpeg (Ubuntu) или brew install ffmpeg (macOS)")
+            raise Exception(f"FFmpeg не найден по пути {ffmpeg_path}")
         except subprocess.TimeoutExpired:
             raise Exception("FFmpeg не отвечает")
         
@@ -64,7 +71,7 @@ class YandexSpeechKit:
             
             # FFmpeg команда: AAC -> Ogg (Opus) в ogg-контейнере
             result = subprocess.run([
-                'ffmpeg',
+                ffmpeg_path,
                 '-y',  # перезаписывать без подтверждения
                 '-i', input_path,
                 '-ac', '1',  # моно

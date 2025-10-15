@@ -34,6 +34,22 @@ class YandexSpeechKit:
         """
         logger.info(f"Starting audio conversion, input size: {len(audio_data)} bytes")
         
+        # Проверяем наличие FFmpeg
+        try:
+            ffmpeg_check = subprocess.run(
+                ['ffmpeg', '-version'],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                timeout=5
+            )
+            if ffmpeg_check.returncode != 0:
+                raise Exception("FFmpeg не установлен или не работает")
+            logger.info(f"FFmpeg найден: {ffmpeg_check.stdout.decode('utf-8').splitlines()[0]}")
+        except FileNotFoundError:
+            raise Exception("FFmpeg не найден. Установите: apt install ffmpeg (Ubuntu) или brew install ffmpeg (macOS)")
+        except subprocess.TimeoutExpired:
+            raise Exception("FFmpeg не отвечает")
+        
         # Создаём временный файл для входного AAC
         with tempfile.NamedTemporaryFile(suffix='.m4a', delete=False) as input_file:
             input_file.write(audio_data)
@@ -44,38 +60,58 @@ class YandexSpeechKit:
             output_path = output_file.name
         
         try:
-             # FFmpeg команда: AAC -> Ogg (Opus) в ogg-контейнере
+            logger.info(f"Converting: {input_path} → {output_path}")
+            
+            # FFmpeg команда: AAC -> Ogg (Opus) в ogg-контейнере
             result = subprocess.run([
                 'ffmpeg',
-                '-y',
+                '-y',  # перезаписывать без подтверждения
                 '-i', input_path,
-                '-ac', '1',
-                '-ar', '16000',
-                '-c:a', 'libopus',
-                '-b:a', '64k',
-                '-vbr', 'on',
-                '-f', 'ogg',
+                '-ac', '1',  # моно
+                '-ar', '16000',  # 16kHz (требование Yandex)
+                '-c:a', 'libopus',  # кодек Opus
+                '-b:a', '64k',  # битрейт
+                '-vbr', 'on',  # variable bitrate
+                '-f', 'ogg',  # формат контейнера
                 output_path
-            ], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-             
-             # Читаем результат
+            ], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=30)
+            
+            logger.info(f"FFmpeg stdout: {result.stdout.decode('utf-8', errors='ignore')[:500]}")
+            logger.info(f"FFmpeg stderr: {result.stderr.decode('utf-8', errors='ignore')[:500]}")
+            
+            # Проверяем, что файл создан и не пустой
+            if not os.path.exists(output_path):
+                raise Exception(f"FFmpeg не создал выходной файл: {output_path}")
+            
+            output_size = os.path.getsize(output_path)
+            if output_size == 0:
+                raise Exception("FFmpeg создал пустой файл")
+            
+            # Читаем результат
             with open(output_path, 'rb') as f:
-                 opus_data = f.read()
-             
-            logger.info(f"Conversion successful: {len(audio_data)} → {len(opus_data)} bytes")
+                opus_data = f.read()
+            
+            logger.info(f"✅ Conversion successful: {len(audio_data)} → {len(opus_data)} bytes")
             return opus_data
             
         except subprocess.CalledProcessError as e:
-            error_msg = e.stderr.decode('utf-8') if e.stderr else 'Unknown error'
-            logger.error(f"FFmpeg conversion failed: {error_msg}")
-            raise Exception(f'FFmpeg conversion failed: {error_msg}')
+            error_msg = e.stderr.decode('utf-8', errors='ignore') if e.stderr else 'Unknown error'
+            logger.error(f"❌ FFmpeg conversion failed (exit code {e.returncode}): {error_msg}")
+            raise Exception(f'FFmpeg conversion failed: {error_msg[:500]}')
+        
+        except subprocess.TimeoutExpired:
+            logger.error("❌ FFmpeg timeout (>30s)")
+            raise Exception("FFmpeg timeout: конвертация заняла больше 30 секунд")
             
         finally:
             # Удаляем временные файлы
-            if os.path.exists(input_path):
-                os.unlink(input_path)
-            if os.path.exists(output_path):
-                os.unlink(output_path)
+            try:
+                if os.path.exists(input_path):
+                    os.unlink(input_path)
+                if os.path.exists(output_path):
+                    os.unlink(output_path)
+            except Exception as cleanup_error:
+                logger.warning(f"Cleanup error: {cleanup_error}")
     
     @classmethod
     def recognize_audio(cls, audio_data, lang='ru-RU'):
@@ -95,13 +131,21 @@ class YandexSpeechKit:
         logger.info(f"Starting speech recognition, input size: {len(audio_data)} bytes")
         
         # Конвертируем AAC → OggOpus
+        opus_data = None
+        conversion_error = None
+        
         try:
             opus_data = cls.convert_to_oggopus(audio_data)
+            logger.info(f"✅ Audio conversion successful: {len(audio_data)} → {len(opus_data)} bytes")
         except Exception as e:
-            logger.error(f"Audio conversion failed: {e}")
-            # Если конвертация не удалась, пробуем отправить как есть
-            logger.warning("Sending original audio data without conversion")
-            opus_data = audio_data
+            conversion_error = str(e)
+            logger.error(f"❌ Audio conversion failed: {e}")
+        
+        # Если конвертация не удалась — возвращаем понятную ошибку
+        if opus_data is None:
+            error_msg = f"Не удалось сконвертировать аудио в OggOpus. FFmpeg ошибка: {conversion_error}. Проверьте, что FFmpeg установлен на сервере (apt install ffmpeg)."
+            logger.error(error_msg)
+            raise Exception(error_msg)
         
         headers = {
             'Authorization': f'Api-Key {settings.YANDEX_GPT_API_KEY}',
